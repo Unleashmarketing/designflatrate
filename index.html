@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLEASH Marketing - Design Flatrate</title>
+    <style>
+        :root {
+            --primary: #F26E21;
+            --dark: #121212;
+            --light: #f5f5f5;
+            --gray: #333333;
+            --container-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background-color: #e05b11;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: #161616;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .filter-container {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-button {
+            padding: 8px 16px;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-button.active, .filter-button:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-header {
+            padding: 15px;
+            background-color: #252525;
+        }
+        
+        .service-category {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .service-time {
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+        
+        .service-description {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .service-platforms {
+            padding: 0 15px 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: #161616;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .pricing-features {
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        
+        .pricing-feature {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .check-icon {
+            color: var(--primary);
+        }
+        
+        .pricing-card .cta-button {
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: #2a2a2a;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(to right, #161616, #1e1e1e);
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .secondary-button {
+            padding: 10px 24px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .pricing-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="container">
+        <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="UNLEASH Marketing Logo" class="logo">
+        <div class="nav-links">
+            <a href="#benefits">Vorteile</a>
+            <a href="#services">Leistungen</a>
+            <a href="#pricing">Pakete</a>
+            <a href="#testimonials">Referenzen</a>
+        </div>
+        <a href="#contact" class="cta-button">Kontakt</a>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content">
+            <h1 class="hero-title">UNSER ANGEBOT</h1>
+            <p class="hero-description">Weil wir mehr als nur eine Designagentur sind – wir sind Ihr Problemlöser. Schnell, effektiv und mit Leidenschaft für Ihr Projekt.</p>
+            <a href="#pricing" class="cta-button">Design Flatrate entdecken</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Modernes Büro mit großen Fenstern">
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">IHRE VORTEILE</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Kostenersparnis</h3>
+                    <p>Keine teuren Agenturpreise oder langfristige Verträge – professionelle Designs zum Fixpreis.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Planbare Budgets</h3>
+                    <p>Klare, transparente Preise ohne versteckte Kosten.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h3 class="benefit-title">Flexibilität</h3>
+                    <p>Monatliche Anpassung der Leistungspakete je nach Bedarf.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👋</div>
+                    <h3 class="benefit-title">Direkter Kontakt</h3>
+                    <p>Persönlicher Designer für schnellere Abstimmung und bessere Ergebnisse.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Schnelle Umsetzung</h3>
+                    <p>Kurze Bearbeitungszeiten für schnelle Reaktionen am Markt.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">Skalierbarkeit</h3>
+                    <p>Perfekt für Unternehmen in der Wachstumsphase.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘</div>
+                    <h3 class="benefit-title">Freie Kapazitäten</h3>
+                    <p>Entlastung interner Teams, damit diese sich auf ihr Kerngeschäft konzentrieren können.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎮</div>
+                    <h3 class="benefit-title">Volle Kontrolle</h3>
+                    <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">UNSERE LEISTUNGEN</h2>
+            <div class="filter-container">
+                <button class="filter-button active" data-filter="all">Alle</button>
+                <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
+                <button class="filter-button" data-filter="print">Print Design</button>
+                <button class="filter-button" data-filter="motion">Motion Design</button>
+                <button class="filter-button" data-filter="ux">UX/UI Design</button>
+                <button class="filter-button" data-filter="brand">Brand Design</button>
+                <button class="filter-button" data-filter="kleidung">Kleidung & Textilien</button>
+                <button class="filter-button" data-filter="video">Video Editing</button>
+                <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
+            </div>
+            <div class="services-grid">
+                <!-- Example service cards - will be generated from your data -->
+                <div class="service-card" data-category="marketing">
+                    <div class="service-header">
+                        <div class="service-category">Marketing & Werbung</div>
+                        <h3 class="service-title">AD Creative</h3>
+                        <div class="service-time">1-2 Tage im Durchschnitt | Classic Paket</div>
+                    </div>
+                    <div class="service-description">
+                        <p>3 Ad Creatives in jeweils 3 Formaten</p>
+                    </div>
+                    <div class="service-platforms">
+                        <div class="platform-icon">Ai</div>
+                        <div class="platform-icon">Ps</div>
+                        <div class="platform-icon">Id</div>
+                        <div class="platform-icon">Xd</div>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-category="motion">
+                    <div class="service-header">
+                        <div class="service-category">Motion Design</div>
+                        <h3 class="service-title">AD Creative</h3>
+                        <div class="service-time">1-3 Tage im Durchschnitt | Classic Paket</div>
+                    </div>
+                    <div class="service-description">
+                        <p>Erstellung eines animierten AD Creatives</p>
+                    </div>
+                    <div class="service-platforms">
+                        <div class="platform-icon">Ae</div>
+                        <div class="platform-icon">Pr</div>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-category="marketing">
+                    <div class="service-header">
+                        <div class="service-category">Marketing & Werbung</div>
+                        <h3 class="service-title">AD Creative Vorlage</h3>
+                        <div class="service-time">1-2 Tage im Durchschnitt | Classic Paket</div>
+                    </div>
+                    <div class="service-description">
+                        <p>Erstellen einer anpassbaren Ad Creative Vorlage zur Wiederverwendung</p>
+                    </div>
+                    <div class="service-platforms">
+                        <div class="platform-icon">Ai</div>
+                        <div class="platform-icon">Ps</div>
+                        <div class="platform-icon">Id</div>
+                        <div class="platform-icon">Xd</div>
+                    </div>
+                </div>
+                
+                <!-- More service cards will be added here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">DESIGN FLATRATE</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Business Design Abo</h3>
+                    <div class="pricing-price">1.460 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Standard Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Persönlicher Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Renommierte Designer</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span>Mindestens 4 Monate</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Flex Design Abo</h3>
+                    <div class="pricing-price">1.890 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Standard Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Persönlicher Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Renommierte Designer</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Monatlich kündbar</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Premium Design Abo</h3>
+                    <div class="pricing-price">3.840 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Doppelte Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Marketing Strategien</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Premium Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Strategische Beratung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Wöchentliche Meetings</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Keine Vertragslaufzeit</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">REFERENZEN</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">UNLEASH hat unser Branding komplett umgekrempelt und uns geholfen, eine konsistente visuelle Identität aufzubauen. Die Design Flatrate ist perfekt für uns – wir bekommen alle Designs, die wir brauchen, ohne uns um Kosten sorgen zu müssen.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Kundenfoto">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Müller</h4>
+                            <p>Marketing Director, Cycler's B&B</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Als schnell wachsendes Startup brauchten wir eine flexible Designlösung, die mit uns mitwächst. UNLEASH liefert nicht nur großartige Designs, sondern auch strategische Beratung. Das Team versteht unsere Vision und setzt sie perfekt um.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kundenfoto">
+                        </div>
+                        <div class="author-info">
+                            <h4>Markus Weber</h4>
+                            <p>CEO, La Cuvée</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Die Zusammenarbeit mit UNLEASH ist unkompliziert und effizient. Wir sparen Zeit und Geld und bekommen trotzdem hochwertige Designs. Die persönliche Betreuung und die schnelle Reaktionszeit sind unschlagbar.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Kundenfoto">
+                        </div>
+                        <div class="author-info">
+                            <h4>Julia Becker</h4>
+                            <p>Creative Director, Heidelberger Institut</p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2 class="cta-title">SIE SUCHEN EINEN PROBLEMLÖSER?</h2>
+            <p class="cta-description">Kontaktieren Sie uns noch heute und erfahren Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
+            <div class="cta-buttons">
+                <a href="mailto:info@unleash-marketing.de" class="cta-button">Jetzt Kontakt aufnehmen</a>
+                <a href="tel:+4916261518432" class="secondary-button">+49 162 6151832</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>UNLEASH Marketing</h3>
+                    <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">LI</a>
+                        <a href="#" class="social-icon">TW</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li>Hafenstr. 25</li>
+                        <li>68159 Mannheim</li>
+                        <li>+49 162 6151832</li>
+                        <li>info@unleash-marketing.de</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Design Flatrate</h3>
+                    <ul class="footer-links">
+                        <li><a href="#pricing">Pakete</a></li>
+                        <li><a href="#benefits">Vorteile</a></li>
+                        <li><a href="#services">Leistungen</a></li>
+                        <li><a href="#testimonials">Referenzen</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Rechtliches</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Service Filter Function
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            // Add event listeners to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide service cards based on filter
+                    serviceCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Service Cards Generator
+        // This would be populated with your actual service data
+        function generateServiceCards() {
+            // This is where you'll add the code to generate all service cards
+            // based on the data from your images
+            
+            const servicesData = [
+                {
+                    category: "marketing",
+                    title: "AD Creative",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "3 Ad Creatives in jeweils 3 Formaten",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "motion",
+                    title: "AD Creative",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellung eines animierten AD Creatives",
+                    platforms: ["Ae", "Pr"]
+                },
+                // Add more service data here
+            ];
+            
+            const servicesGrid = document.querySelector('.services-grid');
+            
+            // Clear existing cards (the examples)
+            servicesGrid.innerHTML = '';
+            
+            // Generate new cards from data
+            servicesData.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                serviceCard.setAttribute('data-category', service.category);
+                
+                let platformsHTML = '';
+                service.platforms.forEach(platform => {
+                    platformsHTML += `<div class="platform-icon">${platform}</div>`;
+                });
+                
+                serviceCard.innerHTML = `
+                    <div class="service-header">
+                        <div class="service-category">${getCategoryName(service.category)}</div>
+                        <h3 class="service-title">${service.title}</h3>
+                        <div class="service-time">${service.time}</div>
+                    </div>
+                    <div class="service-description">
+                        <p>${service.description}</p>
+                    </div>
+                    <div class="service-platforms">
+                        ${platformsHTML}
+                    </div>
+                `;
+                
+                servicesGrid.appendChild(serviceCard);
+            });
+        }
+        
+        function getCategoryName(categorySlug) {
+            const categories = {
+                'marketing': 'Marketing & Werbung',
+                'print': 'Print Design',
+                'motion': 'Motion Design',
+                'ux': 'UX/UI Design',
+                'brand': 'Brand Design',
+                'kleidung': 'Kleidung & Textilien',
+                'video': 'Video Editing',
+                'verpackung': 'Verpackungsdesign'
+            };
+            
+            return categories[categorySlug] || categorySlug;
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(18, 18, 18, 0.95)';
+                nav.style.padding = '15px 0';
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+                nav.style.position = 'sticky';
+                nav.style.top = '0';
+                nav.style.zIndex = '1000';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.padding = '20px 0';
+                nav.style.boxShadow = 'none';
+                nav.style.position = 'relative';
+            }
+        });
+        
+        // This function would populate the services section with all your services
+        // from the images
+        function populateServices() {
+            // Based on your images, you would extract all the service data
+            // and create a structured array of service objects
+            
+            const allServices = [
+                {
+                    category: "marketing",
+                    title: "AD Creative",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "3 Ad Creatives in jeweils 3 Formaten",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "motion",
+                    title: "AD Creative",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellung eines animierten AD Creatives",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "marketing",
+                    title: "AD Creative Vorlage",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen einer anpassbaren Ad Creative Vorlage zur Wiederverwendung",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "schulungen",
+                    title: "Adobe Illustrator Schulung",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Basic Schulung in Adobe Illustrator von einem Experten",
+                    platforms: ["Ai"]
+                },
+                {
+                    category: "schulungen",
+                    title: "Adobe InDesign Schulung",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Basic Schulung in InDesign von einem Experten",
+                    platforms: ["Id"]
+                },
+                {
+                    category: "schulungen",
+                    title: "Adobe Photoshop Schulung",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Basic Schulung in Photoshop von einem Experten",
+                    platforms: ["Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Albumcover",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Albumcovers, druckfertiger Export",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Anhängerplane",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Anhängerplane layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                }
+                // ... and so on for all the services from your images
+            ];
+            
+            // You would then use this data to populate your services grid
+            const servicesGrid = document.querySelector('.services-grid');
+            servicesGrid.innerHTML = ''; // Clear any example cards
+            
+            allServices.forEach(service => {
+                // Create a service card for each service
+                const card = document.createElement('div');
+                card.className = 'service-card';
+                card.setAttribute('data-category', service.category);
+                
+                // Generate platform icons HTML
+                let platformsHTML = '';
+                service.platforms.forEach(platform => {
+                    platformsHTML += `<div class="platform-icon">${platform}</div>`;
+                });
+                
+                // Set the card's inner HTML
+                card.innerHTML = `
+                    <div class="service-header">
+                        <div class="service-category">${getCategoryName(service.category)}</div>
+                        <h3 class="service-title">${service.title}</h3>
+                        <div class="service-time">${service.time}</div>
+                    </div>
+                    <div class="service-description">
+                        <p>${service.description}</p>
+                    </div>
+                    <div class="service-platforms">
+                        ${platformsHTML}
+                    </div>
+                `;
+                
+                servicesGrid.appendChild(card);
+            });
+        }
+        
+        // Call the function to populate services when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // This is commented out because we don't have the actual data yet
+            // populateServices();
+        });
+    </script>
+</body>
+</html>
