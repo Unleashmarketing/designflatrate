@@ -79,7 +79,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 80px 0;
+            padding: 100px 0 80px;
             display: flex;
             align-items: center;
             gap: 50px;
@@ -94,6 +94,11 @@
             line-height: 1.1;
             margin-bottom: 20px;
             color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
         
         .hero-description {
@@ -113,16 +118,51 @@
             display: block;
         }
         
-        /* Benefits Section */
-        .benefits {
+        /* About Section */
+        .about {
             padding: 80px 0;
             background-color: #161616;
         }
         
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
         .section-title {
             font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-description {
+            margin-bottom: 30px;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
         }
         
         .benefits-grid {
@@ -157,6 +197,7 @@
         /* Services Section */
         .services {
             padding: 80px 0;
+            background-color: #161616;
         }
         
         .filter-container {
@@ -241,6 +282,53 @@
             justify-content: center;
         }
         
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            max-width: 300px;
+        }
+        
+        .step:not(:last-child):after {
+            content: '→';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
         /* Pricing Section */
         .pricing {
             padding: 80px 0;
@@ -298,63 +386,43 @@
             text-align: center;
         }
         
-        /* Testimonials Section */
-        .testimonials {
+        /* FAQ Section */
+        .faq {
             padding: 80px 0;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 30px;
-            position: relative;
-        }
-        
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            color: #2a2a2a;
-        }
-        
-        .testimonial-text {
+        .faq-item {
             margin-bottom: 20px;
-            font-style: italic;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
         }
         
-        .testimonial-author {
+        .faq-question {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 15px;
         }
         
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
         }
         
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .faq-question.active:after {
+            content: '-';
         }
         
-        .author-info h4 {
-            font-size: 1.1rem;
+        .faq-answer {
+            display: none;
+            padding: 10px 0;
         }
         
-        .author-info p {
-            color: #999;
-            font-size: 0.9rem;
+        .faq-answer.active {
+            display: block;
         }
         
         /* CTA Section */
@@ -445,15 +513,17 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: #1e1e1e;
+            background-color: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s;
+            text-decoration: none;
         }
         
         .social-icon:hover {
-            background-color: var(--primary);
+            background-color: #e05b11;
         }
         
         .footer-bottom {
@@ -466,7 +536,7 @@
         
         /* Responsive Design */
         @media (max-width: 900px) {
-            .hero {
+            .hero, .about-content {
                 flex-direction: column;
                 text-align: center;
             }
@@ -476,7 +546,26 @@
                 margin-right: auto;
             }
             
-            .pricing-grid, .testimonials-grid {
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                margin-bottom: 40px;
+            }
+            
+            .step:not(:last-child):after {
+                content: '↓';
+                position: absolute;
+                top: auto;
+                right: auto;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .pricing-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -515,10 +604,11 @@
     <nav class="container">
         <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="UNLEASH Marketing Logo" class="logo">
         <div class="nav-links">
+            <a href="#about">Über uns</a>
             <a href="#benefits">Vorteile</a>
             <a href="#services">Leistungen</a>
             <a href="#pricing">Pakete</a>
-            <a href="#testimonials">Referenzen</a>
+            <a href="#faq">FAQ</a>
         </div>
         <a href="#contact" class="cta-button">Kontakt</a>
     </nav>
@@ -526,12 +616,28 @@
     <!-- Hero Section -->
     <section class="hero container">
         <div class="hero-content">
-            <h1 class="hero-title">UNSER ANGEBOT</h1>
-            <p class="hero-description">Weil wir mehr als nur eine Designagentur sind – wir sind Ihr Problemlöser. Schnell, effektiv und mit Leidenschaft für Ihr Projekt.</p>
-            <a href="#pricing" class="cta-button">Design Flatrate entdecken</a>
+            <h1 class="hero-title">DESIGN FLATRATE</h1>
+            <h2 class="hero-subtitle">Unbegrenzte Designleistungen. Ein fester Preis.</h2>
+            <p class="hero-description">Kein Stundensatz. Keine versteckten Kosten. Nur professionelle Designs für Ihr Unternehmen – so viel Sie brauchen.</p>
+            <a href="#pricing" class="cta-button">Unser Angebot entdecken</a>
         </div>
         <div class="hero-image">
             <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Modernes Büro mit großen Fenstern">
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2 class="section-title">WER WIR SIND</h2>
+                <h3 class="section-subtitle">Ihr kreativer Problemlöser für Design</h3>
+                <p class="section-description">UNLEASH ist Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren. Lassen Sie uns gemeinsam Ihre Ziele erreichen – schnell, effektiv und mit Leidenschaft!</p>
+                <p>Gegründet 2020, haben wir bereits über 750 erfolgreiche Projekte für mehr als 34 zufriedene Kunden aus 13+ Branchen umgesetzt. Unser erfahrenes Team von Designern, Entwicklern und Marketingexperten steht Ihnen mit Rat und Tat zur Seite.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Team Meeting">
+            </div>
         </div>
     </section>
     
@@ -539,6 +645,7 @@
     <section class="benefits" id="benefits">
         <div class="container">
             <h2 class="section-title">IHRE VORTEILE</h2>
+            <p class="section-description">Warum Sie sich für unsere Design Flatrate entscheiden sollten</p>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">💰</div>
@@ -584,10 +691,46 @@
         </div>
     </section>
     
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">SO FUNKTIONIERT'S</h2>
+            <p class="section-description">Einfacher geht's nicht: In nur 4 Schritten zu Ihrem perfekten Design</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Anfrage stellen</h3>
+                    <p>Reichen Sie Ihre Anfrage über unser Kunden-Dashboard ein – schnell und unkompliziert.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design erhalten</h3>
+                    <p>Ihr persönlicher Designer setzt Ihr Projekt um und liefert den ersten Entwurf.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Feedback geben</h3>
+                    <p>Teilen Sie uns Ihre Meinung mit. Unbegrenzte Revisionen bis Sie zufrieden sind.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Finales Design</h3>
+                    <p>Erhalten Sie das finale Design inkl. aller Quelldateien zur freien Verwendung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">UNSERE LEISTUNGEN</h2>
+            <p class="section-description">Über 100 Design-Leistungen sind in Ihrer Flatrate enthalten</p>
+            
             <div class="filter-container">
                 <button class="filter-button active" data-filter="all">Alle</button>
                 <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
@@ -599,6 +742,7 @@
                 <button class="filter-button" data-filter="video">Video Editing</button>
                 <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
             </div>
+            
             <div class="services-grid">
                 <!-- Example service cards - will be generated from your data -->
                 <div class="service-card" data-category="marketing">
@@ -658,7 +802,9 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">DESIGN FLATRATE</h2>
+            <h2 class="section-title">UNSERE PAKETE</h2>
+            <p class="section-description">Wählen Sie das passende Paket für Ihre Bedürfnisse</p>
+            
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3 class="pricing-title">Business Design Abo</h3>
@@ -790,52 +936,68 @@
         </div>
     </section>
     
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">REFERENZEN</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">UNLEASH hat unser Branding komplett umgekrempelt und uns geholfen, eine konsistente visuelle Identität aufzubauen. Die Design Flatrate ist perfekt für uns – wir bekommen alle Designs, die wir brauchen, ohne uns um Kosten sorgen zu müssen.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Kundenfoto">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Müller</h4>
-                            <p>Marketing Director, Cycler's B&B</p>
-                        </div>
+            <h2 class="section-title">HÄUFIG GESTELLTE FRAGEN</h2>
+            <p class="section-description">Antworten auf die wichtigsten Fragen zu unserer Design Flatrate</p>
+            
+            <div class="faq-items">
+                <div class="faq-item">
+                    <h3 class="faq-question">Was ist in der Design Flatrate enthalten?</h3>
+                    <div class="faq-answer">
+                        <p>Unsere Design Flatrate beinhaltet über 100 unterschiedliche Designleistungen aus den Bereichen Print, Digital, Motion und Brand Design. Sie haben Zugriff auf einen festen Art Director, der Ihre Anfragen priorisiert bearbeitet. Dazu gehören unbegrenzte Revisionen, sodass Sie immer das perfekte Ergebnis erhalten.</p>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">Als schnell wachsendes Startup brauchten wir eine flexible Designlösung, die mit uns mitwächst. UNLEASH liefert nicht nur großartige Designs, sondern auch strategische Beratung. Das Team versteht unsere Vision und setzt sie perfekt um.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kundenfoto">
-                        </div>
-                        <div class="author-info">
-                            <h4>Markus Weber</h4>
-                            <p>CEO, La Cuvée</p>
-                        </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Wie viele Anfragen kann ich stellen?</h3>
+                    <div class="faq-answer">
+                        <p>Sie können so viele Anfragen stellen, wie Sie möchten. Wir bearbeiten Ihre Anfragen nacheinander in einer Warteschlange. Sobald ein Projekt abgeschlossen ist, nehmen wir uns das nächste vor. So gewährleisten wir eine effiziente und qualitativ hochwertige Bearbeitung.</p>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">Die Zusammenarbeit mit UNLEASH ist unkompliziert und effizient. Wir sparen Zeit und Geld und bekommen trotzdem hochwertige Designs. Die persönliche Betreuung und die schnelle Reaktionszeit sind unschlagbar.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Kundenfoto">
-                        </div>
-                        <div class="author-info">
-                            <h4>Julia Becker</h4>
-                            <p>Creative Director, Heidelberger Institut</p>
-                        </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Wie lange dauert die Bearbeitung einer Anfrage?</h3>
+                    <div class="faq-answer">
+                        <p>Die Bearbeitungszeit variiert je nach Komplexität des Projekts. Einfache Designs wie Social Media Posts können innerhalb eines Tages fertiggestellt werden, während komplexere Projekte wie Broschüren oder Landingpages 2-3 Tage in Anspruch nehmen können. Mit dem Premium-Paket erhalten Sie eine doppelte Bearbeitungsgeschwindigkeit.</p>
                     </div>
-                  </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Kann ich mein Abo jederzeit kündigen?</h3>
+                    <div class="faq-answer">
+                        <p>Das hängt von Ihrem gewählten Abo ab. Das Business-Abo hat eine Mindestlaufzeit von 4 Monaten. Das Flex- und Premium-Abo können Sie monatlich kündigen. Eine Kündigung muss bis zum 15. des Vormonats erfolgen.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Erhalte ich die Quelldateien meiner Designs?</h3>
+                    <div class="faq-answer">
+                        <p>Ja, Sie erhalten alle Quelldateien (AI, PSD, INDD etc.) sowie die finalen Exportdateien in den gängigen Formaten (PDF, JPG, PNG etc.). Alle Designs werden mit voller kommerzieller Nutzungslizenz ausgeliefert.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Was passiert, wenn ich mit einem Design nicht zufrieden bin?</h3>
+                    <div class="faq-answer">
+                        <p>Wir bieten unbegrenzte Revisionen, bis Sie vollständig mit dem Ergebnis zufrieden sind. Geben Sie einfach Feedback, und wir passen das Design entsprechend an. Ihr persönlicher Art Director sorgt dafür, dass Ihre Vorstellungen umgesetzt werden.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Kann ich die Design Flatrate für mehrere Marken oder Unternehmen nutzen?</h3>
+                    <div class="faq-answer">
+                        <p>Ja, Sie können die Design Flatrate für beliebig viele Marken oder Unternehmen nutzen, solange Sie der rechtmäßige Eigentümer oder Bevollmächtigte dieser Marken sind. Für Agenturen, die die Flatrate für ihre Kunden nutzen möchten, bieten wir spezielle Agency-Pakete an.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Welche Software wird für die Designs verwendet?</h3>
+                    <div class="faq-answer">
+                        <p>Wir arbeiten mit der gesamten Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro etc.) sowie mit Figma, Sketch und anderen branchenüblichen Design-Tools. So gewährleisten wir höchste Qualität und Flexibilität bei allen Projekten.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -843,8 +1005,8 @@
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <h2 class="cta-title">SIE SUCHEN EINEN PROBLEMLÖSER?</h2>
-            <p class="cta-description">Kontaktieren Sie uns noch heute und erfahren Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
+            <h2 class="cta-title">BEREIT FÜR PROFESSIONELLES DESIGN?</h2>
+            <p class="cta-description">Kontaktieren Sie uns noch heute und entdecken Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
             <div class="cta-buttons">
                 <a href="mailto:info@unleash-marketing.de" class="cta-button">Jetzt Kontakt aufnehmen</a>
                 <a href="tel:+4916261518432" class="secondary-button">+49 162 6151832</a>
@@ -874,16 +1036,6 @@
                         <li>68159 Mannheim</li>
                         <li>+49 162 6151832</li>
                         <li>info@unleash-marketing.de</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Design Flatrate</h3>
-                    <ul class="footer-links">
-                        <li><a href="#pricing">Pakete</a></li>
-                        <li><a href="#benefits">Vorteile</a></li>
-                        <li><a href="#services">Leistungen</a></li>
-                        <li><a href="#testimonials">Referenzen</a></li>
                     </ul>
                 </div>
                 
@@ -929,6 +1081,17 @@
                             card.style.display = 'none';
                         }
                     });
+                });
+            });
+            
+            // FAQ Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const faqAnswers = document.querySelectorAll('.faq-answer');
+            
+            faqQuestions.forEach((question, index) => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    faqAnswers[index].classList.toggle('active');
                 });
             });
         });
@@ -1000,7 +1163,8 @@
                 'brand': 'Brand Design',
                 'kleidung': 'Kleidung & Textilien',
                 'video': 'Video Editing',
-                'verpackung': 'Verpackungsdesign'
+                'verpackung': 'Verpackungsdesign',
+                'schulungen': 'Schulungen'
             };
             
             return categories[categorySlug] || categorySlug;
