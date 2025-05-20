@@ -7,7 +7,9 @@
     <style>
         :root {
             --primary: #F26E21;
+            --primary-dark: #e05b11;
             --dark: #121212;
+            --dark-light: #1e1e1e;
             --light: #f5f5f5;
             --gray: #333333;
             --container-width: 1200px;
@@ -74,48 +76,116 @@
         }
         
         .cta-button:hover {
-            background-color: #e05b11;
+            background-color: var(--primary-dark);
         }
         
-        /* Hero Section */
+        /* Modern Hero Section */
         .hero {
-            padding: 100px 0 80px;
-            display: flex;
-            align-items: center;
-            gap: 50px;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #181818 0%, #252525 100%);
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(242, 110, 33, 0) 70%);
+            opacity: 0.1;
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .hero:after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(242, 110, 33, 0) 70%);
+            opacity: 0.05;
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
         }
         
         .hero-content {
-            flex: 1;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
         
         .hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 20px;
-            color: var(--primary);
+            background: linear-gradient(to right, #ffffff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .hero-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: 300;
         }
         
         .hero-description {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #cccccc;
         }
         
-        .hero-image {
-            flex: 1;
-            border-radius: 12px;
-            overflow: hidden;
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
         }
-        
-        .hero-image img {
+
+        .hero-shapes {
+            position: absolute;
             width: 100%;
-            display: block;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-shape {
+            position: absolute;
+            background-color: rgba(242, 110, 33, 0.05);
+            border-radius: 50%;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: 10%;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: 15%;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            left: -75px;
         }
         
         /* About Section */
@@ -172,25 +242,36 @@
         }
         
         .benefit-card {
-            background-color: #1e1e1e;
+            background-color: var(--dark-light);
             padding: 30px;
             border-radius: 8px;
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         
         .benefit-card:hover {
             transform: translateY(-5px);
         }
         
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .benefit-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        
         .benefit-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .benefit-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
             color: var(--primary);
         }
         
@@ -210,7 +291,7 @@
         
         .filter-button {
             padding: 8px 16px;
-            background: #1e1e1e;
+            background: var(--dark-light);
             border: 1px solid #333;
             color: white;
             border-radius: 4px;
@@ -230,7 +311,7 @@
         }
         
         .service-card {
-            background-color: #1e1e1e;
+            background-color: var(--dark-light);
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s;
@@ -302,13 +383,14 @@
         }
         
         .step:not(:last-child):after {
-            content: '→';
+            content: '';
             position: absolute;
             top: 50%;
             right: -15px;
             transform: translateY(-50%);
-            font-size: 2rem;
-            color: var(--primary);
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary);
         }
         
         .step-number {
@@ -342,16 +424,30 @@
         }
         
         .pricing-card {
-            background-color: #1e1e1e;
+            background-color: var(--dark-light);
             border-radius: 8px;
             padding: 40px 30px;
             display: flex;
             flex-direction: column;
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
+        }
+
+        .pricing-card:after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(242, 110, 33, 0) 70%);
+            opacity: 0.05;
+            bottom: -75px;
+            right: -75px;
+            border-radius: 50%;
         }
         
         .pricing-title {
@@ -429,7 +525,21 @@
         .cta-section {
             padding: 100px 0;
             text-align: center;
-            background: linear-gradient(to right, #161616, #1e1e1e);
+            background: linear-gradient(135deg, #161616 0%, #252525 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(242, 110, 33, 0) 70%);
+            opacity: 0.05;
+            top: -200px;
+            right: 100px;
+            border-radius: 50%;
         }
         
         .cta-title {
@@ -523,7 +633,7 @@
         }
         
         .social-icon:hover {
-            background-color: #e05b11;
+            background-color: var(--primary-dark);
         }
         
         .footer-bottom {
@@ -536,14 +646,9 @@
         
         /* Responsive Design */
         @media (max-width: 900px) {
-            .hero, .about-content {
+            .about-content {
                 flex-direction: column;
                 text-align: center;
-            }
-            
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
             }
             
             .steps {
@@ -556,13 +661,16 @@
             }
             
             .step:not(:last-child):after {
-                content: '↓';
+                content: '';
                 position: absolute;
                 top: auto;
                 right: auto;
-                bottom: -40px;
+                bottom: -20px;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-50%) rotate(90deg);
+                width: 30px;
+                height: 2px;
+                background-color: var(--primary);
             }
             
             .pricing-grid {
@@ -596,6 +704,16 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta .cta-button, 
+            .hero-cta .secondary-button {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -613,16 +731,21 @@
         <a href="#contact" class="cta-button">Kontakt</a>
     </nav>
     
-    <!-- Hero Section -->
-    <section class="hero container">
-        <div class="hero-content">
-            <h1 class="hero-title">DESIGN FLATRATE</h1>
+    <!-- Modern Hero Section without image -->
+    <section class="hero">
+        <div class="hero-shapes">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Design Flatrate</h1>
             <h2 class="hero-subtitle">Unbegrenzte Designleistungen. Ein fester Preis.</h2>
             <p class="hero-description">Kein Stundensatz. Keine versteckten Kosten. Nur professionelle Designs für Ihr Unternehmen – so viel Sie brauchen.</p>
-            <a href="#pricing" class="cta-button">Unser Angebot entdecken</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="Modernes Büro mit großen Fenstern">
+            <div class="hero-cta">
+                <a href="#pricing" class="cta-button">Unser Angebot entdecken</a>
+                <a href="#services" class="secondary-button">Alle Leistungen ansehen</a>
+            </div>
         </div>
     </section>
     
@@ -641,49 +764,84 @@
         </div>
     </section>
     
-    <!-- Benefits Section -->
+    <!-- Benefits Section with custom SVG icons -->
     <section class="benefits" id="benefits">
         <div class="container">
             <h2 class="section-title">IHRE VORTEILE</h2>
             <p class="section-description">Warum Sie sich für unsere Design Flatrate entscheiden sollten</p>
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1V23M12 1H8M12 1H16M12 23H8M12 23H16M4 5H20M4 19H20M2 12H6M18 12H22M4 9H8M16 9H20M4 15H8M16 15H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Kostenersparnis</h3>
                     <p>Keine teuren Agenturpreise oder langfristige Verträge – professionelle Designs zum Fixpreis.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 4V20M16 4V20M1 12H23M9 8H12M9 16H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Planbare Budgets</h3>
                     <p>Klare, transparente Preise ohne versteckte Kosten.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">🔄</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Flexibilität</h3>
                     <p>Monatliche Anpassung der Leistungspakete je nach Bedarf.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">👋</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 20C18 17.7909 15.3137 16 12 16C8.68629 16 6 17.7909 6 20M22 8H19M19 12H22M22 16H19M5 8H2M5 12H2M5 16H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Direkter Kontakt</h3>
                     <p>Persönlicher Designer für schnellere Abstimmung und bessere Ergebnisse.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Schnelle Umsetzung</h3>
                     <p>Kurze Bearbeitungszeiten für schnelle Reaktionen am Markt.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 6L13.5 15.5L8.5 10.5L1 18M23 6H17M23 6V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Skalierbarkeit</h3>
                     <p>Perfekt für Unternehmen in der Wachstumsphase.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">🧘</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Freie Kapazitäten</h3>
                     <p>Entlastung interner Teams, damit diese sich auf ihr Kerngeschäft konzentrieren können.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">🎮</div>
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="benefit-title">Volle Kontrolle</h3>
                     <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
                 </div>
@@ -1191,7 +1349,7 @@
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(18, 18, 18, 0.95)';
+nav.style.background = 'rgba(18, 18, 18, 0.95)';
                 nav.style.padding = '15px 0';
                 nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
                 nav.style.position = 'sticky';
