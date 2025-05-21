@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNLEASH Marketing - Design Flatrate für Unternehmen</title>
+    <title>UNLEASH Marketing - Design Flatrate</title>
     <style>
-        /* Reset & Base Styles */
+        /* Global Styles */
+        :root {
+            --primary-color: #0a0a0a;
+            --secondary-color: #ff3366;
+            --text-color: #ffffff;
+            --light-text: #cccccc;
+            --dark-bg: #141414;
+            --card-bg: #1e1e1e;
+            --hover-color: #ff4778;
+            --border-color: #2a2a2a;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         body {
-            color: #f0f0f0;
-            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             line-height: 1.6;
-            background-color: #121212;
-            overflow-x: hidden;
         }
         
         .container {
@@ -31,456 +36,465 @@
             padding: 0 20px;
         }
         
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        ul {
-            list-style: none;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        
-        p {
-            margin-bottom: 1rem;
+        section {
+            padding: 80px 0;
         }
         
         .section-title {
             font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
             text-align: center;
-            margin-bottom: 1rem;
-            color: #fff;
+            letter-spacing: 2px;
         }
         
         .section-description {
-            text-align: center;
             font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--light-text);
             max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #aaa;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        /* Header & Navigation */
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        /* Button Styles */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary-color);
+            cursor: pointer;
+            margin-left: 15px;
+            text-align: center;
+        }
+        
+        .secondary-button:hover {
+            background-color: rgba(255, 51, 102, 0.1);
+        }
+        
+        /* Header Styles */
         header {
-            position: relative;
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            position: fixed;
             width: 100%;
+            top: 0;
+            left: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
         }
         
         nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            transition: all 0.3s ease;
         }
         
-        .nav-container {
+        .nav-menu {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            list-style: none;
         }
         
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #fff;
+        .nav-menu li {
+            margin-left: 30px;
         }
         
-        .logo span {
-            color: #ff6b00;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: #fff;
+        .nav-menu a {
+            font-size: 16px;
             font-weight: 500;
             transition: color 0.3s ease;
         }
         
-        .nav-links a:hover {
-            color: #ff6b00;
+        .nav-menu a:hover {
+            color: var(--secondary-color);
         }
         
-        .cta-button {
-            background-color: #ff6b00;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
+        .header-cta {
+            margin-left: 40px;
         }
         
-        .cta-button:hover {
-            background-color: #e55d00;
-        }
-        
-        .secondary-button {
-            background-color: transparent;
-            color: #fff;
-            padding: 9px 24px;
-            border-radius: 5px;
-            font-weight: 600;
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            display: inline-block;
-            border: 1px solid #fff;
-            cursor: pointer;
+            transform: translateY(-100%);
+            opacity: 0;
         }
         
-        .secondary-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .sticky-header.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
         
         /* Hero Section */
         .hero {
-            background-color: #121212;
-            color: #fff;
-            padding: 120px 0 80px;
+            height: 100vh;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
             text-align: center;
             position: relative;
+            margin-top: 0;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 51, 102, 0.1) 0%, transparent 70%);
+            z-index: 1;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         
-        .hero h1 {
+        .hero-title {
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
             font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
         }
         
-        .hero-tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            color: #f0f0f0;
+        .hero-title span {
+            color: var(--secondary-color);
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: var(--light-text);
         }
         
         .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: #1a1a1a;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .about-image {
-            flex: 1;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            color: #fff;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #aaa;
+            margin-top: 40px;
         }
         
         /* Benefits Section */
         .benefits {
-            background-color: #121212;
-            padding: 100px 0;
+            background-color: var(--dark-bg);
         }
         
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
+            gap: 30px;
         }
         
         .benefit-card {
-            background: #1a1a1a;
-            padding: 30px;
+            background-color: var(--card-bg);
+            padding: 40px 30px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .benefit-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .benefit-icon {
-            margin-bottom: 1.5rem;
-            color: #ff6b00;
-            font-size: 3rem;
-        }
-        
-        .benefit-title {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            color: #fff;
-        }
-        
-        /* How It Works Section */
-        .how-it-works {
-            padding: 100px 0;
-            background-color: #1a1a1a;
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-        }
-        
-        .step:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            top: 40px;
-            right: -30px;
+            margin-bottom: 20px;
             width: 60px;
-            height: 2px;
-            background-color: #333;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background-color: #ff6b00;
-            color: #fff;
+            height: 60px;
+            background-color: rgba(255, 51, 102, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .benefit-icon svg {
+            width: 30px;
+            height: 30px;
+            color: var(--secondary-color);
+        }
+        
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--primary-color);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-left: 10px solid var(--secondary-color);
+            border-bottom: 8px solid transparent;
+        }
+        
+        .step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 20px;
         }
         
         .step-title {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
         /* Services Section */
         .services {
-            padding: 100px 0;
-            background-color: #121212;
+            background-color: var(--dark-bg);
         }
         
         .filter-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 40px;
         }
         
         .filter-button {
             background-color: transparent;
-            color: #fff;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 1rem;
+            margin: 5px;
             transition: all 0.3s ease;
-            border: 2px solid #333;
         }
         
         .filter-button:hover {
-            background-color: rgba(255, 107, 0, 0.1);
-            color: #ff6b00;
-            border-color: #ff6b00;
+            background-color: rgba(255, 51, 102, 0.1);
+            border-color: var(--secondary-color);
         }
         
         .filter-button.active {
-            background-color: #ff6b00;
-            color: #fff;
-            border-color: #ff6b00;
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .service-card {
-            background: #1a1a1a;
+            background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .service-header {
             padding: 20px;
-            background-color: #222;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .service-category {
-            color: #ff6b00;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 12px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .service-title {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         
         .service-time {
-            font-size: 0.85rem;
-            color: #aaa;
+            font-size: 14px;
+            color: var(--light-text);
         }
         
         .service-description {
             padding: 20px;
-            color: #ccc;
+            border-bottom: 1px solid var(--border-color);
+            min-height: 100px;
         }
         
         .service-platforms {
             display: flex;
-            gap: 0.5rem;
-            padding: 0 20px 20px;
+            flex-wrap: wrap;
+            padding: 15px 20px;
         }
         
         .platform-icon {
-            background-color: #333;
-            color: #fff;
-            width: 35px;
-            height: 35px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            background-color: rgba(255, 51, 102, 0.1);
+            color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
         /* Pricing Section */
         .pricing {
-            padding: 100px 0;
-            background-color: #1a1a1a;
+            background-color: var(--primary-color);
         }
         
         .pricing-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .pricing-card {
-            background: #222;
+            background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             padding: 40px 30px;
-            flex: 1;
-            max-width: 350px;
-            transition: transform 0.3s ease;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .pricing-title {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         
         .pricing-price {
             font-size: 2.5rem;
-            font-weight: 800;
-            color: #ff6b00;
-            margin-bottom: 2rem;
-            text-align: center;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
         }
         
         .pricing-features {
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
         }
         
         .pricing-feature {
-            margin-bottom: 1rem;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ccc;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            text-align: left;
         }
         
         .check-icon {
-            color: #ff6b00;
-            font-weight: 600;
-        }
-        
-        .pricing-card .cta-button {
-            width: 100%;
-            text-align: center;
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
         /* FAQ Section */
         .faq {
-            padding: 100px 0;
-            background-color: #121212;
+            background-color: var(--dark-bg);
         }
         
         .faq-items {
@@ -489,241 +503,227 @@
         }
         
         .faq-item {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 1.5rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
         }
         
         .faq-question {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            padding: 20px;
+            background-color: var(--card-bg);
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            color: #fff;
             position: relative;
-            padding-right: 30px;
+            transition: all 0.3s ease;
         }
         
         .faq-question::after {
-            content: "+";
+            content: '+';
             position: absolute;
-            right: 0;
-            top: 0;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 1.5rem;
-            color: #ff6b00;
-            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active {
+            color: var(--secondary-color);
         }
         
         .faq-question.active::after {
-            content: "-";
+            content: '-';
         }
         
         .faq-answer {
-            display: none;
-            padding-top: 1rem;
-            color: #aaa;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
         .faq-answer.active {
-            display: block;
+            padding: 20px;
+            max-height: 1000px;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 100px 0;
-            background-color: #121212;
-            color: #fff;
+            background-color: var(--secondary-color);
             text-align: center;
+            padding: 100px 0;
         }
         
         .cta-title {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
         
         .cta-description {
             font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            color: #aaa;
         }
         
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
+        .cta-buttons .cta-button {
+            background-color: var(--text-color);
+            color: var(--secondary-color);
+        }
+        
+        .cta-buttons .cta-button:hover {
+            background-color: var(--light-text);
+        }
+        
+        .cta-buttons .secondary-button {
+            border-color: var(--text-color);
+            color: var(--text-color);
+        }
+        
+        .cta-buttons .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
         /* Footer */
         footer {
-            background-color: #121212;
-            color: #fff;
-            padding: 50px 0 20px;
+            background-color: var(--primary-color);
+            padding: 80px 0 20px;
         }
         
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
         
         .footer-column h3 {
-            margin-bottom: 1.5rem;
-            color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         
         .footer-column p {
-            color: #aaa;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            color: #aaa;
-        }
-        
-        .footer-links li a:hover {
-            color: #ff6b00;
+            color: var(--light-text);
+            margin-bottom: 20px;
         }
         
         .social-links {
             display: flex;
-            gap: 1rem;
         }
         
         .social-icon {
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            background-color: var(--card-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
         }
         
         .social-icon:hover {
-            background-color: #ff6b00;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #777;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 14px;
         }
         
-        /* Responsive Design */
-        @media (max-width: 991px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
             .benefits-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .steps {
-                flex-direction: column;
-                gap: 3rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
             }
             
-            .step:not(:last-child)::after {
+            .step::after {
                 display: none;
-            }
-            
-            .pricing-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .pricing-card {
-                max-width: 100%;
-                width: 100%;
             }
         }
         
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .secondary-button {
+                margin-left: 0;
+                margin-top: 15px;
             }
             
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
             
-            .services-grid {
+            .steps {
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                flex-direction: column;
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
             }
-        }
-        
-        /* Custom Styling for SVG Icons */
-        .benefit-icon svg {
-            width: 48px;
-            height: 48px;
-            stroke: #ff6b00;
-            fill: none;
-        }
-        
-        /* Sticky Header */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(18, 18, 18, 0.95);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .sticky-header.visible {
-            transform: translateY(0);
+            
+            .nav-menu {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container header-container">
+            <a href="#" class="logo">UNLEASH <span>Marketing</span></a>
             <nav>
-                <div class="nav-container">
-                    <a href="#" class="logo">UNLEASH<span>.</span></a>
-                    <ul class="nav-links">
-                        <li><a href="#about">Über uns</a></li>
-                        <li><a href="#benefits">Vorteile</a></li>
-                        <li><a href="#how-it-works">So funktioniert's</a></li>
-                        <li><a href="#services">Leistungen</a></li>
-                        <li><a href="#pricing">Pakete</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
+                <ul class="nav-menu">
+                    <li><a href="#benefits">Vorteile</a></li>
+                    <li><a href="#how-it-works">So funktioniert's</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#pricing">Pakete</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="header-cta">
                     <a href="#contact" class="cta-button">Kontakt</a>
                 </div>
             </nav>
@@ -732,18 +732,17 @@
     
     <!-- Sticky Header -->
     <div class="sticky-header">
-        <div class="container">
+        <div class="container header-container">
+            <a href="#" class="logo">UNLEASH <span>Marketing</span></a>
             <nav>
-                <div class="nav-container">
-                    <a href="#" class="logo">UNLEASH<span>.</span></a>
-                    <ul class="nav-links">
-                        <li><a href="#about">Über uns</a></li>
-                        <li><a href="#benefits">Vorteile</a></li>
-                        <li><a href="#how-it-works">So funktioniert's</a></li>
-                        <li><a href="#services">Leistungen</a></li>
-                        <li><a href="#pricing">Pakete</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
+                <ul class="nav-menu">
+                    <li><a href="#benefits">Vorteile</a></li>
+                    <li><a href="#how-it-works">So funktioniert's</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#pricing">Pakete</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="header-cta">
                     <a href="#contact" class="cta-button">Kontakt</a>
                 </div>
             </nav>
@@ -754,28 +753,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>DESIGN FLATRATE<br>FÜR UNTERNEHMEN</h1>
-                <p class="hero-tagline">Unbegrenzte Design-Anfragen, unbegrenzte Revisionen, ein fester Preis. Alle Quellendateien inklusive.</p>
+                <h1 class="hero-title">Unbegrenztes Design für eine <span>monatliche Flatrate</span></h1>
+                <p class="hero-description">Professionelles Design in Agentur-Qualität — ohne Einstellung eines teuren Inhouse-Designers. Über 100 Design-Leistungen zu einem Flatrate-Preis.</p>
                 <div class="hero-buttons">
-                    <a href="#pricing" class="cta-button">Pakete entdecken</a>
+                    <a href="#pricing" class="cta-button">Pakete ansehen</a>
                     <a href="#how-it-works" class="secondary-button">So funktioniert's</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="UNLEASH Marketing Team">
-                </div>
-                <div class="about-text">
-                    <h2>WER WIR SIND</h2>
-                    <p>UNLEASH ist eine Full-Service-Kreativagentur mit Sitz in Mannheim, die sich auf innovative Design-Lösungen für Unternehmen jeder Größe spezialisiert hat.</p>
-                    <p>Unser Team besteht aus erfahrenen Designern, Marketingstrategen und Kreativen, die ihr Handwerk verstehen. Gemeinsam haben wir über 1.000 Unternehmen dabei geholfen, ihre visuelle Identität zu stärken und ihr Marketing auf die nächste Stufe zu heben.</p>
-                    <p>Mit unserer Design Flatrate bieten wir Ihnen eine kosteneffektive und flexible Lösung für all Ihre Designbedürfnisse – ohne versteckte Kosten oder komplizierte Verträge.</p>
                 </div>
             </div>
         </div>
@@ -784,76 +766,38 @@
     <!-- Benefits Section -->
     <section class="benefits" id="benefits">
         <div class="container">
-            <h2 class="section-title">IHRE VORTEILE</h2>
-            <p class="section-description">Warum immer mehr Unternehmen auf unsere Design Flatrate setzen</p>
+            <h2 class="section-title">WARUM DESIGN FLATRATE?</h2>
+            <p class="section-description">Professionelles Design ohne die Komplexität, den Aufwand und die Kosten der Einstellung eines Full-Time-Designers</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 16V8.00002C20.9996 7.6493 20.9071 7.30483 20.7315 7.00119C20.556 6.69754 20.3037 6.44539 20 6.27002L13 2.27002C12.696 2.09449 12.3511 2.00208 12 2.00208C11.6489 2.00208 11.304 2.09449 11 2.27002L4 6.27002C3.69626 6.44539 3.44398 6.69754 3.26846 7.00119C3.09294 7.30483 3.00036 7.6493 3 8.00002V16C3.00036 16.3508 3.09294 16.6952 3.26846 16.9989C3.44398 17.3025 3.69626 17.5547 4 17.73L11 21.73C11.304 21.9056 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9056 13 21.73L20 17.73C20.3037 17.5547 20.556 17.3025 20.7315 16.9989C20.9071 16.6952 20.9996 16.3508 21 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.27002 6.96002L12 12L20.73 6.96002" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22.08V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Unbegrenzte Anfragen</h3>
-                    <p>Stellen Sie so viele Design-Anfragen, wie Sie möchten – ohne zusätzliche Kosten.</p>
+                    <h3 class="benefit-title">Kostengünstig</h3>
+                    <p>Ein Bruchteil der Kosten eines Inhouse-Designers bei gleicher oder besserer Qualität.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14.31 8L20.05 17.94" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9.69 8H21.17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.38 12.0001L13.12 2.06006" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2.83 8.00006L8.57 17.9401" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.38 12H18.86" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9.69 16.0001L3.95 6.06006" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18457 2.99721 7.13633 4.39828 5.49707C5.79935 3.85782 7.69279 2.71538 9.79619 2.24015C11.8996 1.76491 14.1003 1.98234 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="benefit-title">Konsistentes Branding</h3>
-                    <p>Ein fester Art Director sorgt für ein einheitliches Erscheinungsbild über alle Kanäle hinweg.</p>
+                    <h3 class="benefit-title">Einfach & Schnell</h3>
+                    <p>Keine Meetings, keine Pitches, kein Stress – einfach Anfragen stellen und zurücklehnen.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 21V5C16 3.89543 15.1046 3 14 3H10C8.89543 3 8 3.89543 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Alle Quelldateien</h3>
-                    <p>Erhalten Sie alle Projektdateien mit vollständigen kommerziellen Nutzungsrechten.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Schnelle Umsetzung</h3>
-                    <p>Die meisten Projekte werden innerhalb von 1-3 Werktagen umgesetzt.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Kosteneffizienz</h3>
-                    <p>Sparen Sie bis zu 70% im Vergleich zur Beauftragung einzelner Freelancer.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h3 class="benefit-title">Volle Kontrolle</h3>
@@ -1177,836 +1121,6 @@
         </div>
     </footer>
     
-    <script>
-        // Service Filter Function
-        document.addEventListener('DOMContentLoaded', function() {
-            // Aktiviere die populateServices-Funktion
-            populateServices();
-            
-            // Füge Event-Listener für Filter-Buttons hinzu
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const serviceCards = document.querySelectorAll('.service-card');
-            
-            // Add event listeners to filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Get filter value
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Show/hide service cards based on filter
-                    document.querySelectorAll('.service-card').forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // FAQ Toggle
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            const faqAnswers = document.querySelectorAll('.faq-answer');
-            
-            faqQuestions.forEach((question, index) => {
-                question.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    faqAnswers[index].classList.toggle('active');
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Improved sticky header on scroll
-            window.addEventListener('scroll', function() {
-                const stickyHeader = document.querySelector('.sticky-header');
-                
-                if (window.scrollY > 200) {
-                    stickyHeader.classList.add('visible');
-                } else {
-                    stickyHeader.classList.remove('visible');
-                }
-            });
-        });
-
-        // Funktion zum Generieren der Service-Karten mit allen Leistungen aus den Bildern
-        function populateServices() {
-            // Komplette Liste aller Leistungen basierend auf den Bildern
-            const allServices = [
-                // Marketing & Werbung
-                {
-                    category: "marketing",
-                    title: "AD Creative",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "3 Ad Creatives in jeweils 3 Formaten",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "motion",
-                    title: "AD Creative",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellung eines animierten AD Creatives",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "marketing",
-                    title: "AD Creative Vorlage",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen einer anpassbaren Ad Creative Vorlage zur Wiederverwendung",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "schulungen",
-                    title: "Adobe Illustrator Schulung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Basic Schulung in Adobe Illustrator von einem Experten",
-                    platforms: ["Ai"]
-                },
-                {
-                    category: "schulungen",
-                    title: "Adobe InDesign Schulung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Basic Schulung in InDesign von einem Experten",
-                    platforms: ["Id"]
-                },
-                {
-                    category: "schulungen",
-                    title: "Adobe Photoshop Schulung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Basic Schulung in Photoshop von einem Experten",
-                    platforms: ["Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Albumcover",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Albumcovers, druckfertiger Export",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Anhängerplane",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Anhängerplane layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "ux",
-                    title: "App Design",
-                    time: "Abhängig vom Aufwand",
-                    description: "Anlegen eines Wireframes, gestalten der App, Aufbereitung für Entwicklung",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Aufkleber",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Award",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen einer Awards, für Herstellung aufbereiten",
-                    platforms: ["Xd", "Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Bandenwerbung",
-                    time: "Abhängig vom Aufwand",
-                    description: "Erstellen einer Bandenwerbung, Aufbereitung zur weiteren Verwendung",
-                    platforms: ["Id"]
-                },
-                {
-                    category: "marketing",
-                    title: "Banner Ad",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "1-2 Banner Ads in den gewünschten Formaten",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Bauzaunbanner",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-category: "marketing",
-                    title: "Bildfreistellung",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Freistellen von 1-20 Bildern je nach Komplexität",
-                    platforms: ["Ps"]
-                },
-                {
-                    category: "brand",
-                    title: "Bildwelt",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Moodboards für die zukünftige Bildwelt",
-                    platforms: ["Id", "Ps"]
-                },
-                {
-                    category: "marketing",
-                    title: "Blog Beitrag",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Gestaltung eines Blogbeitrags mit 8 Sektionen",
-                    platforms: ["Xd", "Id"]
-                },
-                {
-                    category: "brand",
-                    title: "Brand Manual",
-                    time: "5-10 Tage im Durchschnitt | Classic Paket",
-                    description: "Ausführliche Zusammenfassung in ca. 15-20 Seiten der Marke (Logo, Farben, Schriften, Bildwelt, Mission, Vision, Anwendungsbeispiele)",
-                    platforms: ["Xd", "Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Briefpapier",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Doppelseitiges Briefpapier layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Broschüre",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Eine Doppelseite layouten, gestalten, druckfertiger Export",
-                    platforms: ["Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Buchcover",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Buchcovers, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Buchsatz",
-                    time: "Abhängig vom Aufwand",
-                    description: "Anlegen eines gesamten Buches, druckfertiger Export",
-                    platforms: ["Id"]
-                },
-                {
-                    category: "ux",
-                    title: "Dashboard",
-                    time: "Abhängig vom Aufwand",
-                    description: "Anlegen eines Wireframes, gestalten des Dashboards, Aufbereitung für Entwicklung",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Decke",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen einer Decke, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Display Anzeige",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "1-2 Displayanzeigen in den Google Ads-Formaten",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "E-Mail Newsletter",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Gestalten eines Newsletters (ohne html)",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Einladungskarte",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "4-Seitige Karte layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Eintrittskarte",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "2-Seitige Eintrittskarte layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps", "Id", "Xd"]
-                },
-                {
-                    category: "motion",
-                    title: "Erklärvideo",
-                    time: "Abhängig vom Aufwand",
-                    description: "Erstellen eines Erklärvideos zur Erläuterung komplexer Themenbereiche",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "print",
-                    title: "Fahrzeugbeklebung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Ein Fahrzeug gestalten, Aufbereitung für weitere Verwendung",
-                    platforms: ["Ai", "Id", "Ps"]
-                },
-                {
-                    category: "verpackung",
-                    title: "Faltschachtel",
-                    time: "2-4 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "brand",
-                    title: "Farbwelt",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Ausarbeitung der Unternehmensfarben zur Markenbildung",
-                    platforms: ["Ai", "Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Firmenschilder",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines Firmenschildes, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Flagge",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "verpackung",
-                    title: "Flaschendesign",
-                    time: "5-7 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Flyer (2-Seitig)",
-                    time: "2-4 Tage im Durchschnitt | Classic Paket",
-                    description: "Vorder- & Rückseite layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Flyer (6-Seitig)",
-                    time: "3-5 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Fotobearbeitung",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Color Grading, Retusche, weitere Anpassungen",
-                    platforms: ["Ps"]
-                },
-                {
-                    category: "verpackung",
-                    title: "Geschenkverpackung",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "motion",
-                    title: "Gif",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines animierten Gifs",
-                    platforms: ["Ae"]
-                },
-                {
-                    category: "print",
-                    title: "Gutschein",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Gutscheins, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Hemd / Bluse",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Hemdes / einer Bluse, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Hoodie & Sweatshirt",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Vorder- & Rückseite erstellen, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Hose",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Designs, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "brand",
-                    title: "Iconset",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Iconsets mit 12 Icons",
-                    platforms: ["Ai"]
-                },
-                {
-                    category: "marketing",
-                    title: "Illustration",
-                    time: "Abhängig vom Aufwand",
-                    description: "Illustration von einem Comic, Maskottchen, usw.",
-                    platforms: ["Ai"]
-                },
-                {
-                    category: "marketing",
-                    title: "Infografik",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Eine Infografik für einen Themenschwerpunkt ausarbeiten",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "video",
-                    title: "Instagram Reel",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines viralen Instagram Reels aus bestehendem Videomaterial",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "motion",
-                    title: "Intro / Outro",
-                    time: "3-4 Tage im Durchschnitt | Classic Paket",
-                    description: "Gestaltung eines animierten Intros/Outros",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Jacke",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Designs, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Kalender",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines Kalenders, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "brand",
-                    title: "Key Visual",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen von 2-3 Key Visuals zur Markenbildung",
-                    platforms: ["Ai"]
-                },
-                {
-                    category: "verpackung",
-                    title: "Klebeband",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "video",
-                    title: "Kurzfilm",
-                    time: "Abhängig vom Aufwand",
-                    description: "Cutting, Color Grading, Audio Design und Export von maximal 3 Minuten Videos",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "ux",
-                    title: "Landingpage",
-                    time: "4-6 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines Wireframes mit 6 Sektionen, gestalten der Webseite, Aufbereitung für Entwicklung",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Leuchtwerbung",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen einer Leuchtwerbung, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "brand",
-                    title: "Logo Design",
-                    time: "2-5 Tage im Durchschnitt | Classic Paket",
-                    description: "3 ausgearbeitete Logo Konzepte, Reinzeichnung eines Konzeptes",
-                    platforms: ["Ai"]
-                },
-                {
-                    category: "motion",
-                    title: "Logo-Animation",
-                    time: "Abhängig vom Aufwand",
-                    description: "Erstellung einer Logo-Animation",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "motion",
-                    title: "Lotti Animation",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Einfache Animation von bspw. Infografiken oder SaaS Plattformen",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "print",
-                    title: "Magazin",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Eine Doppelseite layouten, gestalten, reinzeichnen, druckfertiger Export",
-                    platforms: ["Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Messestand",
-                    time: "3-6 Tage im Durchschnitt | Classic Paket",
-                    description: "Messewand & Messetheke layouten, gestalten, druckfertiger Export",
-                    platforms: ["Xd", "Id", "Ps"]
-                },
-                {
-                    category: "schulungen",
-                    title: "Mitarbeiterschulung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Schulung im Bereich Design von einem Experten",
-                    platforms: ["Ai", "Id", "Ps", "Xd", "Ae"]
-                },
-                {
-                    category: "marketing",
-                    title: "NFT",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Gestalten eines NFTs, Aufbereitung zur weiteren Verwendung",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "verpackung",
-                    title: "POS-Display",
-                    time: "4-5 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Plakat",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "video",
-                    title: "Podcast",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Cutting, Color Grading, Audio Design und Export eines 30 minütigen Podcasts",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Poloshirt",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Poloshirt, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Poster",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Postkarte",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Präsentation",
-                    time: "Abhängig vom Aufwand",
-                    description: "Erstellung einer Präsentation bspw. für Sales",
-                    platforms: ["Xd", "Ai", "Ps", "Id"]
-                },
-                {
-                    category: "motion",
-                    title: "Präsentation",
-                    time: "Abhängig vom Aufwand",
-                    description: "Ausarbeitung einer Präsentation, Export als Videodatei",
-                    platforms: ["Ae", "Ai", "Ps"]
-                },
-                {
-                    category: "video",
-                    title: "Recruiting AD",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Cutting, Color Grading, Audio Design und Export einer 2 minütigen Recruiting AD",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Regenschirm",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Regenschirms, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Roll-Up",
-                    time: "2-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "ux",
-                    title: "SaaS",
-                    time: "Abhängig vom Aufwand",
-                    description: "Anlegen eines Wireframes, Umsetzung des Designs, Aufbereitung für Entwicklung",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Schaufensterbeklebung",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Eine Schaufensterbeklebung gestalten, Aufbereitung zur weiteren Verwendung",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Schlüsselanhänger",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Anhängers, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "ux",
-                    title: "Sitemap",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen einer Sitemap für eine Webseite oder SaaS",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Social Media Banner",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Ein Banner für Meta, YouTube oder LinkedIn",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Social Media Post",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "3 Social Media Posts layouten und gestalten",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Speisekarte",
-                    time: "Abhängig vom Aufwand",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "kleidung",
-                    title: "Sportbekleidung",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Designs, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Stempel",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines Stempels, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "brand",
-                    title: "Style Guide",
-                    time: "2-4 Tage im Durchschnitt | Classic Paket",
-                    description: "Kurze Zusammenfassung in ca. 5-7 Seiten der Marke (Logo, Farben, Schriften, Bildwelt)",
-                    platforms: ["Xd", "Id", "Ps"]
-                },
-                {
-                    category: "kleidung",
-                    title: "T-Shirt",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines T-Shirts, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Thumbnail",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Erstellen eines Thumbnails",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "video",
-                    title: "TikTok Video",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Cutting, Color Grading, Audio Design",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "ux",
-                    title: "UI/UX Components",
-                    time: "2-4 Tage im Durchschnitt | Classic Paket",
-                    description: "Erstellen von grundlegenden Components für UI/UX, anlegen einer Library",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Urkunde",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Erstellen einer Urkunde, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "verpackung",
-                    title: "Versandverpackungen",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Layouten, gestalten, druckfertiger Export",
-                    platforms: ["Id", "Ps"]
-                },
-                {
-                    category: "print",
-                    title: "Visitenkarte",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Doppelseitige Visitenkarte layouten, gestalten, druckfertiger Export",
-                    platforms: ["Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Wandbilder",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines motivierenden Wandbildes, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "ux",
-                    title: "Website",
-                    time: "Abhängig vom Aufwand",
-                    description: "Anlegen eines Wireframes, gestalten der Webseite, Aufbereitung für Entwicklung",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "marketing",
-                    title: "Werbeartikel",
-                    time: "Abhängig vom Aufwand",
-                    description: "Erstellen eines Werbeartikels jeglicher Art, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "print",
-                    title: "Werbesäule",
-                    time: "1-3 Tage im Durchschnitt | Classic Paket",
-                    description: "Werbesäule im Wunschformat erstellen, druckfertiger Export",
-                    platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "ux",
-                    title: "Wireframe",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Anlegen eines grundlegenden Wireframes für 8 Sektionen (ohne Design)",
-                    platforms: ["Xd"]
-                },
-                {
-                    category: "schulungen",
-                    title: "Workshop",
-                    time: "1 Tag im Durchschnitt | Classic Paket",
-                    description: "Workshop zur Markenbildung von einem Experten",
-                    platforms: ["Ai", "Ps", "Xd", "Ae", "Pr", "Id", "Ps", "Xd"]
-                },
-                {
-                    category: "video",
-                    title: "YouTube Short",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Cutting, Color Grading, Audio Design",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "video",
-                    title: "YouTube Video",
-                    time: "Abhängig vom Aufwand",
-                    description: "Cutting, Color Grading, Audio Design",
-                    platforms: ["Ae", "Pr"]
-                },
-                {
-                    category: "print",
-                    title: "Zeitschrift",
-                    time: "1-2 Tage im Durchschnitt | Classic Paket",
-                    description: "Eine Doppelseite layouten, gestalten, reinzeichnen, druckfertiger Export",
-                    platforms: ["Id"]
-                }
-            ];
-            
-            // Sie würden dann diese Daten verwenden, um Ihr Services-Grid zu befüllen
-            const servicesGrid = document.querySelector('.services-grid');
-            servicesGrid.innerHTML = ''; // Löschen Sie alle Beispielkarten
-            
-            allServices.forEach(service => {
-                // Erstellen Sie eine Servicekarte für jeden Service
-                const card = document.createElement('div');
-                card.className = 'service-card';
-                card.setAttribute('data-category', service.category);
-                
-                // Generieren Sie Platform-Icons HTML
-                let platformsHTML = '';
-                service.platforms.forEach(platform => {
-                    platformsHTML += `<div class="platform-icon">${platform}</div>`;
-                });
-                
-                // Setzen Sie den inneren HTML-Code der Karte
-                card.innerHTML = `
-                    <div class="service-header">
-                        <div class="service-category">${getCategoryName(service.category)}</div>
-                        <h3 class="service-title">${service.title}</h3>
-                        <div class="service-time">${service.time}</div>
-                    </div>
-<div class="service-description">
-                        <p>${service.description}</p>
-                    </div>
-                    <div class="service-platforms">
-                        ${platformsHTML}
-                    </div>
-                `;
-                
-                servicesGrid.appendChild(card);
-            });
-        }
-
-        function getCategoryName(categorySlug) {
-            const categories = {
-                'marketing': 'Marketing & Werbung',
-                'print': 'Print Design',
-                'motion': 'Motion Design',
-                'ux': 'UX/UI Design',
-                'brand': 'Brand Design',
-                'kleidung': 'Kleidung & Textilien',
-                'video': 'Video Editing',
-                'verpackung': 'Verpackungsdesign',
-                'schulungen': 'Schulungen'
-            };
-            
-            return categories[categorySlug] || categorySlug;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
