@@ -1,30 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Aktiviere die populateServices-Funktion
+    // Services-Funktionalität initialisieren
     populateServices();
+    initializeShowMore();
     
-    // Füge Event-Listener für Filter-Buttons hinzu
+    // Filter-Button Event-Listener
     const filterButtons = document.querySelectorAll('.filter-button');
     
-    // Add event listeners to filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
             this.classList.add('active');
             
-            // Get filter value
             const filterValue = this.getAttribute('data-filter');
-            
-            // Show/hide service cards based on filter
-            document.querySelectorAll('.service-card').forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            filterServices(filterValue);
         });
     });
     
@@ -39,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth scrolling for anchor links
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -56,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Improved sticky header on scroll
+    // Sticky header
     window.addEventListener('scroll', function() {
         const stickyHeader = document.querySelector('.sticky-header');
         
@@ -68,10 +56,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Funktion zum Generieren der Service-Karten mit allen Leistungen aus den Bildern
+// Global variables für Services
+let allServices = [];
+let showingAllServices = false;
+const INITIAL_SERVICES_COUNT = 30; // Zeige initial 30 Services
+
+// Services mit Show More Funktionalität
 function populateServices() {
-    // Komplette Liste aller Leistungen basierend auf den Bildern
-    const allServices = [
+    // Komplette Service-Liste aus deiner ursprünglichen script.js
+    allServices = [
         // Marketing & Werbung
         {
             category: "marketing",
@@ -190,7 +183,7 @@ function populateServices() {
             title: "Blog Beitrag",
             time: "1 Tag im Durchschnitt | Classic Paket",
             description: "Gestaltung eines Blogbeitrags mit 8 Sektionen",
-platforms: ["Xd", "Id"]
+            platforms: ["Xd", "Id"]
         },
         {
             category: "brand",
@@ -682,146 +675,229 @@ platforms: ["Xd", "Id"]
             description: "Cutting, Color Grading, Audio Design",
             platforms: ["Ae", "Pr"]
         },
-        {
-            category: "ux",
-            title: "UI/UX Components",
-            time: "2-4 Tage im Durchschnitt | Classic Paket",
-            description: "Erstellen von grundlegenden Components für UI/UX, anlegen einer Library",
-            platforms: ["Xd"]
-        },
-        {
-            category: "print",
-            title: "Urkunde",
-            time: "1 Tag im Durchschnitt | Classic Paket",
-            description: "Erstellen einer Urkunde, druckfertiger Export",
-            platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "verpackung",
-            title: "Versandverpackungen",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Layouten, gestalten, druckfertiger Export",
-            platforms: ["Id", "Ps"]
-        },
-        {
-            category: "print",
-            title: "Visitenkarte",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Doppelseitige Visitenkarte layouten, gestalten, druckfertiger Export",
-            platforms: ["Ai", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "print",
-            title: "Wandbilder",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Anlegen eines motivierenden Wandbildes, druckfertiger Export",
-            platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "ux",
-            title: "Website",
-            time: "Abhängig vom Aufwand",
-            description: "Anlegen eines Wireframes, gestalten der Webseite, Aufbereitung für Entwicklung",
-            platforms: ["Xd"]
-        },
-        {
-            category: "marketing",
-            title: "Werbeartikel",
-            time: "Abhängig vom Aufwand",
-            description: "Erstellen eines Werbeartikels jeglicher Art, druckfertiger Export",
-            platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "print",
-            title: "Werbesäule",
-            time: "1-3 Tage im Durchschnitt | Classic Paket",
-            description: "Werbesäule im Wunschformat erstellen, druckfertiger Export",
-            platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "ux",
-            title: "Wireframe",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Anlegen eines grundlegenden Wireframes für 8 Sektionen (ohne Design)",
-            platforms: ["Xd"]
-        },
-        {
-            category: "schulungen",
-            title: "Workshop",
-            time: "1 Tag im Durchschnitt | Classic Paket",
-            description: "Workshop zur Markenbildung von einem Experten",
-            platforms: ["Ai", "Ps", "Xd", "Ae", "Pr", "Id", "Ps", "Xd"]
-        },
-        {
-            category: "video",
-            title: "YouTube Short",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Cutting, Color Grading, Audio Design",
-            platforms: ["Ae", "Pr"]
-        },
-        {
-            category: "video",
-            title: "YouTube Video",
-            time: "Abhängig vom Aufwand",
-            description: "Cutting, Color Grading, Audio Design",
-            platforms: ["Ae", "Pr"]
-        },
-        {
-            category: "print",
-            title: "Zeitschrift",
-            time: "1-2 Tage im Durchschnitt | Classic Paket",
-            description: "Eine Doppelseite layouten, gestalten, reinzeichnen, druckfertiger Export",
-            platforms: ["Id"]
-        }
-    ];
-    
-    // Sie würden dann diese Daten verwenden, um Ihr Services-Grid zu befüllen
-    const servicesGrid = document.querySelector('.services-grid');
-    servicesGrid.innerHTML = ''; // Löschen Sie alle Beispielkarten
-    
-    allServices.forEach(service => {
-        // Erstellen Sie eine Servicekarte für jeden Service
-        const card = document.createElement('div');
-        card.className = 'service-card';
-        card.setAttribute('data-category', service.category);
-        
-        // Generieren Sie Platform-Icons HTML
-        let platformsHTML = '';
-        service.platforms.forEach(platform => {
-            platformsHTML += `<div class="platform-icon">${platform}</div>`;
-        });
-        
-        // Setzen Sie den inneren HTML-Code der Karte
-        card.innerHTML = `
-            <div class="service-header">
-                <div class="service-category">${getCategoryName(service.category)}</div>
-                <h3 class="service-title">${service.title}</h3>
-                <div class="service-time">${service.time}</div>
-            </div>
-            <div class="service-description">
-                <p>${service.description}</p>
-            </div>
-            <div class="service-platforms">
-                ${platformsHTML}
-            </div>
-        `;
-        
-        servicesGrid.appendChild(card);
-    });
+{
+           category: "ux",
+           title: "UI/UX Components",
+           time: "2-4 Tage im Durchschnitt | Classic Paket",
+           description: "Erstellen von grundlegenden Components für UI/UX, anlegen einer Library",
+           platforms: ["Xd"]
+       },
+       {
+           category: "print",
+           title: "Urkunde",
+           time: "1 Tag im Durchschnitt | Classic Paket",
+           description: "Erstellen einer Urkunde, druckfertiger Export",
+           platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "verpackung",
+           title: "Versandverpackungen",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Layouten, gestalten, druckfertiger Export",
+           platforms: ["Id", "Ps"]
+       },
+       {
+           category: "print",
+           title: "Visitenkarte",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Doppelseitige Visitenkarte layouten, gestalten, druckfertiger Export",
+           platforms: ["Ai", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "print",
+           title: "Wandbilder",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Anlegen eines motivierenden Wandbildes, druckfertiger Export",
+           platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "ux",
+           title: "Website",
+           time: "Abhängig vom Aufwand",
+           description: "Anlegen eines Wireframes, gestalten der Webseite, Aufbereitung für Entwicklung",
+           platforms: ["Xd"]
+       },
+       {
+           category: "marketing",
+           title: "Werbeartikel",
+           time: "Abhängig vom Aufwand",
+           description: "Erstellen eines Werbeartikels jeglicher Art, druckfertiger Export",
+           platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "print",
+           title: "Werbesäule",
+           time: "1-3 Tage im Durchschnitt | Classic Paket",
+           description: "Werbesäule im Wunschformat erstellen, druckfertiger Export",
+           platforms: ["Xd", "Ai", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "ux",
+           title: "Wireframe",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Anlegen eines grundlegenden Wireframes für 8 Sektionen (ohne Design)",
+           platforms: ["Xd"]
+       },
+       {
+           category: "schulungen",
+           title: "Workshop",
+           time: "1 Tag im Durchschnitt | Classic Paket",
+           description: "Workshop zur Markenbildung von einem Experten",
+           platforms: ["Ai", "Ps", "Xd", "Ae", "Pr", "Id", "Ps", "Xd"]
+       },
+       {
+           category: "video",
+           title: "YouTube Short",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Cutting, Color Grading, Audio Design",
+           platforms: ["Ae", "Pr"]
+       },
+       {
+           category: "video",
+           title: "YouTube Video",
+           time: "Abhängig vom Aufwand",
+           description: "Cutting, Color Grading, Audio Design",
+           platforms: ["Ae", "Pr"]
+       },
+       {
+           category: "print",
+           title: "Zeitschrift",
+           time: "1-2 Tage im Durchschnitt | Classic Paket",
+           description: "Eine Doppelseite layouten, gestalten, reinzeichnen, druckfertiger Export",
+           platforms: ["Id"]
+       }
+   ];
+   
+   renderServices();
+}
+
+function renderServices() {
+   const servicesGrid = document.querySelector('.services-grid');
+   const showMoreBtn = document.getElementById('showMoreServices');
+   
+   // Bestimme welche Services angezeigt werden sollen
+   const currentFilter = document.querySelector('.filter-button.active').getAttribute('data-filter');
+   let filteredServices = filterServicesByCategory(allServices, currentFilter);
+   
+   // Bestimme die Anzahl der anzuzeigenden Services
+   const servicesToShow = showingAllServices ? 
+       filteredServices : 
+       filteredServices.slice(0, INITIAL_SERVICES_COUNT);
+   
+   // Grid leeren und Services hinzufügen
+   servicesGrid.innerHTML = '';
+   
+   servicesToShow.forEach(service => {
+       const card = createServiceCard(service);
+       servicesGrid.appendChild(card);
+   });
+   
+   // Show More Button Status aktualisieren
+   updateShowMoreButton(filteredServices.length);
+}
+
+function createServiceCard(service) {
+   const card = document.createElement('div');
+   card.className = 'service-card';
+   card.setAttribute('data-category', service.category);
+   
+   let platformsHTML = '';
+   service.platforms.forEach(platform => {
+       platformsHTML += `<div class="platform-icon">${platform}</div>`;
+   });
+   
+   card.innerHTML = `
+       <div class="service-header">
+           <div class="service-category">${getCategoryName(service.category)}</div>
+           <h3 class="service-title">${service.title}</h3>
+           <div class="service-time">${service.time}</div>
+       </div>
+       <div class="service-description">
+           <p>${service.description}</p>
+       </div>
+       <div class="service-platforms">
+           ${platformsHTML}
+       </div>
+   `;
+   
+   return card;
+}
+
+function filterServicesByCategory(services, category) {
+   if (category === 'all') {
+       return services;
+   }
+   return services.filter(service => service.category === category);
+}
+
+function updateShowMoreButton(totalFilteredServices) {
+   const showMoreBtn = document.getElementById('showMoreServices');
+   const btnText = showMoreBtn.querySelector('.btn-text');
+   
+   if (totalFilteredServices <= INITIAL_SERVICES_COUNT) {
+       // Nicht genug Services für Button
+       showMoreBtn.classList.add('hidden');
+   } else {
+       showMoreBtn.classList.remove('hidden');
+       
+       if (showingAllServices) {
+           btnText.textContent = 'Weniger anzeigen';
+           showMoreBtn.classList.add('expanded');
+       } else {
+           const remainingCount = totalFilteredServices - INITIAL_SERVICES_COUNT;
+           btnText.textContent = `${remainingCount} weitere Leistungen entdecken`;
+           showMoreBtn.classList.remove('expanded');
+       }
+   }
+}
+
+function initializeShowMore() {
+   const showMoreBtn = document.getElementById('showMoreServices');
+   
+   showMoreBtn.addEventListener('click', function() {
+       showingAllServices = !showingAllServices;
+       
+       // Loading Animation
+       this.classList.add('loading');
+       
+       setTimeout(() => {
+           renderServices();
+           this.classList.remove('loading');
+           
+           // Smooth scroll zu den neuen Services
+           if (showingAllServices) {
+               setTimeout(() => {
+                   const newServicesPosition = document.querySelector('.service-card:nth-child(31)');
+                   if (newServicesPosition) {
+                       newServicesPosition.scrollIntoView({ 
+                           behavior: 'smooth', 
+                           block: 'center' 
+                       });
+                   }
+               }, 100);
+           }
+       }, 300);
+   });
+}
+
+function filterServices(filterValue) {
+   // Reset Show More Status beim Filtern
+   showingAllServices = false;
+   renderServices();
 }
 
 function getCategoryName(categorySlug) {
-    const categories = {
-        'marketing': 'Marketing & Werbung',
-        'print': 'Print Design',
-        'motion': 'Motion Design',
-        'ux': 'UX/UI Design',
-        'brand': 'Brand Design',
-        'kleidung': 'Kleidung & Textilien',
-        'video': 'Video Editing',
-        'verpackung': 'Verpackungsdesign',
-        'schulungen': 'Schulungen'
-    };
-    
-    return categories[categorySlug] || categorySlug;
+   const categories = {
+       'marketing': 'Marketing & Werbung',
+       'print': 'Print Design',
+       'motion': 'Motion Design',
+       'ux': 'UX/UI Design',
+       'brand': 'Brand Design',
+       'kleidung': 'Kleidung & Textilien',
+       'video': 'Video Editing',
+       'verpackung': 'Verpackungsdesign',
+       'schulungen': 'Schulungen'
+   };
+   
+   return categories[categorySlug] || categorySlug;
 }
