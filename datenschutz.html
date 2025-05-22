@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - UNLEASH Marketing</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: #f0f0f0;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: relative;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        
+        .logo span {
+            color: #ff6b00;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ff6b00;
+        }
+        
+        .cta-button {
+            background-color: #ff6b00;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #e55d00;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 120px 0 80px;
+            background-color: #121212;
+        }
+        
+        .datenschutz-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .datenschutz-content h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .datenschutz-content h2 {
+            color: #ff6b00;
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem 0;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .datenschutz-content h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .datenschutz-content p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .datenschutz-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        
+        .datenschutz-content li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .datenschutz-content a {
+            color: #ff6b00;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .datenschutz-content a:hover {
+            color: #e55d00;
+        }
+        
+        .contact-info {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #ff6b00;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: #ff6b00;
+            padding: 12px 24px;
+            border: 2px solid #ff6b00;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .back-button:hover {
+            background-color: #ff6b00;
+            color: #fff;
+        }
+        
+        .important-note {
+            background-color: #2a1810;
+            border: 1px solid #ff6b00;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 2rem 0;
+        }
+        
+        .important-note h4 {
+            color: #ff6b00;
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: #222;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        
+        .data-table th {
+            background-color: #ff6b00;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            color: #ccc;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #121212;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            color: #aaa;
+        }
+        
+        .footer-links li a:hover {
+            color: #ff6b00;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff6b00;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .datenschutz-content {
+                padding: 40px 30px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .datenschutz-content {
+                padding: 30px 20px;
+            }
+            
+            .datenschutz-content h1 {
+                font-size: 2rem;
+            }
+            
+            .datenschutz-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .data-table {
+                font-size: 0.9rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-container">
+                    <a href="index.html" class="logo">UNLEASH<span>.</span></a>
+                    <ul class="nav-links">
+                        <li><a href="index.html#about">Über uns</a></li>
+                        <li><a href="index.html#benefits">Vorteile</a></li>
+                        <li><a href="index.html#how-it-works">So funktioniert's</a></li>
+                        <li><a href="index.html#services">Leistungen</a></li>
+                        <li><a href="index.html#pricing">Pakete</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                    <a href="index.html#contact" class="cta-button">Kontakt</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <div class="datenschutz-content">
+                <a href="index.html" class="back-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Zurück zur Startseite
+                </a>
+                
+                <h1>DATENSCHUTZERKLÄRUNG</h1>
+                
+                <div class="important-note">
+                    <h4>Wichtiger Hinweis</h4>
+                    <p>Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Datenschutzerklärung informiert Sie über die Verarbeitung Ihrer personenbezogenen Daten bei der Nutzung unserer Website und unserer Dienstleistungen.</p>
+                </div>
+                
+                <h2>1. Verantwortlicher</h2>
+                <div class="contact-info">
+                    <p><strong>UNLEASH Marketing</strong><br>
+                    Inh. [Ihr Name]<br>
+                    Hafenstr. 25<br>
+                    68159 Mannheim<br>
+                    Deutschland</p>
+                    
+                    <p><strong>Kontakt:</strong><br>
+                    Telefon: +49 162 6151832<br>
+                    E-Mail: info@unleash-marketing.de</p>
+                </div>
+                
+                <h2>2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck von deren Verwendung</h2>
+                
+                <h3>a) Beim Besuch der Website</h3>
+                <p>Beim Aufrufen unserer Website unleash-marketing.de werden durch den auf Ihrem Endgerät zum Einsatz kommenden Browser automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sog. Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:</p>
+                
+                <ul>
+                    <li>IP-Adresse des anfragenden Rechners</li>
+                    <li>Datum und Uhrzeit des Zugriffs</li>
+                    <li>Name und URL der abgerufenen Datei</li>
+                    <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+                    <li>Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners sowie der Name Ihres Access-Providers</li>
+                </ul>
+                
+                <p>Die genannten Daten werden durch uns zu folgenden Zwecken verarbeitet:</p>
+                <ul>
+                    <li>Gewährleistung eines reibungslosen Verbindungsaufbaus der Website</li>
+                    <li>Gewährleistung einer komfortablen Nutzung unserer Website</li>
+                    <li>Auswertung der Systemsicherheit und -stabilität sowie</li>
+                    <li>Weitere administrative Zwecke</li>
+                </ul>
+                
+                <p>Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO. Unser berechtigtes Interesse folgt aus oben aufgelisteten Zwecken zur Datenerhebung. In keinem Fall verwenden wir die erhobenen Daten zu dem Zweck, Rückschlüsse auf Ihre Person zu ziehen.</p>
+                
+                <h3>b) Bei Nutzung unseres Kontaktformulars</h3>
+                <p>Bei Fragen jeglicher Art bieten wir Ihnen die Möglichkeit, mit uns über ein auf der Website bereitgestelltes Formular Kontakt aufzunehmen. Dabei ist die Angabe einer gültigen E-Mail-Adresse erforderlich, damit wir wissen, von wem die Anfrage stammt und um diese beantworten zu können. Weitere Angaben können freiwillig getätigt werden.</p>
+                
+                <p>Die Datenverarbeitung zum Zwecke der Kontaktaufnahme mit uns erfolgt nach Art. 6 Abs. 1 S. 1 lit. a DSGVO auf Grundlage Ihrer freiwillig erteilten Einwilligung.</p>
+                
+                <h2>3. Weitergabe von Daten</h2>
+                <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte zu anderen als den im Folgenden aufgeführten Zwecken findet nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:</p>
+                
+                <ul>
+                    <li>Sie Ihre nach Art. 6 Abs. 1 S. 1 lit. a DSGVO ausdrückliche Einwilligung dazu erteilt haben</li>
+                    <li>Die Weitergabe nach Art. 6 Abs. 1 S. 1 lit. f DSGVO zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist</li>
+                    <li>Eine gesetzliche Verpflichtung zur Weitergabe nach Art. 6 Abs. 1 S. 1 lit. c DSGVO besteht</li>
+                </ul>
+                
+                <h2>4. Cookies</h2>
+                <p>Wir setzen auf unserer Seite Cookies ein. Hierbei handelt es sich um kleine Dateien, die Ihr Browser automatisch erstellt und die auf Ihrem Endgerät (Laptop, Tablet, Smartphone o.ä.) gespeichert werden, wenn Sie unsere Seite besuchen.</p>
+                
+                <h3>Arten von Cookies:</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie-Typ</th>
+                            <th>Zweck</th>
+                            <th>Speicherdauer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Notwendige Cookies</td>
+                            <td>Grundlegende Funktionen der Website</td>
+                            <td>Session/bis zu 1 Jahr</td>
+                        </tr>
+                        <tr>
+                            <td>Analytische Cookies</td>
+                            <td>Analyse der Website-Nutzung</td>
+                            <td>Bis zu 2 Jahre</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing Cookies</td>
+                            <td>Personalisierte Werbung</td>
+                            <td>Bis zu 2 Jahre</td>
+                        </tr>
+                        <tr>
+                            <td>Funktionale Cookies</td>
+                            <td>Erweiterte Website-Funktionen</td>
+                            <td>Bis zu 1 Jahr</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren.</p>
+                
+                <h2>5. Analyse-Tools</h2>
+                
+                <h3>Google Analytics</h3>
+                <p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA („Google"). Google Analytics verwendet sog. „Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen.</p>
+                
+                <p>Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Im Falle der Aktivierung der IP-Anonymisierung auf dieser Website, wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt.</p>
+                
+                <h2>6. Social Media</h2>
+                <p>Wir unterhalten Onlinepräsenzen innerhalb sozialer Netzwerke, um mit den dort aktiven Kunden, Interessenten und Nutzern kommunizieren und sie dort über unsere Leistungen informieren zu können.</p>
+                
+                <p>Beim Aufruf der jeweiligen Netzwerke und Plattformen gelten die Geschäftsbedingungen und die Datenverarbeitungsrichtlinien deren jeweiliger Betreiber.</p>
+                
+                <h2>7. Betroffenenrechte</h2>
+                <p>Sie haben das Recht:</p>
+                <ul>
+                    <li>gemäß Art. 15 DSGVO Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen</li>
+                    <li>gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen</li>
+                    <li>gemäß Art. 17 DSGVO die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen</li>
+                    <li>gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen</li>
+                    <li>gemäß Art. 20 DSGVO Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in strukturierter, gängiger und maschinenlesbarer Format zu erhalten oder die Übermittlung an einen anderen Verantwortlichen zu verlangen</li>
+                    <li>gemäß Art. 7 Abs. 3 DSGVO Ihre einmal erteilte Einwilligung jederzeit gegenüber uns zu widerrufen</li>
+                </ul>
+                
+                <h2>8. Widerspruchsrecht</h2>
+                <p>Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 S. 1 lit. f DSGVO verarbeitet werden, haben Sie das Recht, gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten einzulegen, soweit dafür Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben.</p>
+                
+                <h2>9. Datensicherheit</h2>
+                <p>Wir verwenden innerhalb des Website-Besuchs das verbreitete SSL-Verfahren (Secure Socket Layer) in Verbindung mit der jeweils höchsten Verschlüsselungsstufe, die von Ihrem Browser unterstützt wird. In der Regel handelt es sich dabei um eine 256 Bit Verschlüsselung. Falls Ihr Browser keine 256-Bit Verschlüsselung unterstützt, greifen wir stattdessen auf 128-Bit v3 Technologie zurück.</p>
+                
+                <h2>10. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+                <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Januar 2025. Durch die Weiterentwicklung unserer Website und Angebote darüber oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.</p>
+                
+                <h2>11. Beschwerderecht</h2>
+                <p>Sie haben das Recht, sich bei einer Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
+                
+                <div class="contact-info">
+                    <h4>Zuständige Aufsichtsbehörde:</h4>
+                    <p>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>
+                    Postfach 10 29 32<br>
+                    70025 Stuttgart<br>
+                    Deutschland</p>
+                </div>
+                
+                <p><em>Stand: Januar 2025</em></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>UNLEASH Marketing</h3>
+                    <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">LI</a>
+                        <a href="#" class="social-icon">TW</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li>Hafenstr. 25</li>
+                        <li>68159 Mannheim</li>
+                        <li>+49 162 6151832</li>
+                        <li>info@unleash-marketing.de</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Rechtliches</h3>
+                    <ul class="footer-links">
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
