@@ -315,25 +315,38 @@
             background-color: #121212;
         }
         
+        .services-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .filter-sidebar {
+            position: sticky;
+            top: 100px;
+            width: 250px;
+            flex-shrink: 0;
+        }
+        
         .filter-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         
         .filter-button {
             background-color: transparent;
             color: #fff;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 30px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
             border: 2px solid #333;
+            text-align: left;
+            width: 100%;
         }
         
         .filter-button:hover {
@@ -348,9 +361,13 @@
             border-color: #ff6b00;
         }
         
+        .services-main {
+            flex: 1;
+        }
+        
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
         
@@ -360,6 +377,9 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .service-card:hover {
@@ -392,12 +412,14 @@
         .service-description {
             padding: 20px;
             color: #ccc;
+            flex-grow: 1;
         }
         
         .service-platforms {
             display: flex;
             gap: 0.5rem;
             padding: 0 20px 20px;
+            margin-top: auto;
         }
         
         .platform-icon {
@@ -434,6 +456,8 @@
             flex: 1;
             max-width: 350px;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .pricing-card:hover {
@@ -457,6 +481,7 @@
         
         .pricing-features {
             margin-bottom: 2rem;
+            flex-grow: 1;
         }
         
         .pricing-feature {
@@ -475,6 +500,7 @@
         .pricing-card .cta-button {
             width: 100%;
             text-align: center;
+            margin-top: auto;
         }
         
         /* FAQ Section */
@@ -527,7 +553,7 @@
             display: block;
         }
         
-        /* CTA Section */
+        /* CTA Section - NEUE ORANGE GESTALTUNG */
         .cta-section {
             padding: 100px 0;
             background-color: #121212;
@@ -535,24 +561,49 @@
             text-align: center;
         }
         
+        .cta-container {
+            background-color: #ff6b00;
+            padding: 60px 40px;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         .cta-title {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
+            color: #fff;
         }
         
         .cta-description {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
+        }
+        
+        .cta-section .cta-button {
+            background-color: #fff;
+            color: #ff6b00;
+            font-weight: 700;
+        }
+        
+        .cta-section .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-section .secondary-button {
+            border-color: #fff;
+            color: #fff;
+        }
+        
+        .cta-section .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
         /* Footer */
@@ -662,6 +713,31 @@
                 max-width: 100%;
                 width: 100%;
             }
+            
+            .services-content {
+                flex-direction: column;
+            }
+            
+            .filter-sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .filter-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .filter-button {
+                width: auto;
+                text-align: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 767px) {
@@ -679,6 +755,11 @@
             
             .footer-content {
                 flex-direction: column;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
         
@@ -828,307 +909,304 @@
                     <p>Erhalten Sie alle Projektdateien mit vollständigen kommerziellen Nutzungsrechten.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Schnelle Umsetzung</h3>
-                    <p>Die meisten Projekte werden innerhalb von 1-3 Werktagen umgesetzt.</p>
+<div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Kosteneffizienz</h3>
-                    <p>Sparen Sie bis zu 70% im Vergleich zur Beauftragung einzelner Freelancer.</p>
+                <h3 class="benefit-title">Kosteneffizienz</h3>
+                <p>Sparen Sie bis zu 70% im Vergleich zur Beauftragung einzelner Freelancer.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Volle Kontrolle</h3>
-                    <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
+                <h3 class="benefit-title">Volle Kontrolle</h3>
+                <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <h2 class="section-title">SO FUNKTIONIERT'S</h2>
+        <p class="section-description">Einfacher geht's nicht: In nur 4 Schritten zu Ihrem perfekten Design</p>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Anfrage stellen</h3>
+                <p>Reichen Sie Ihre Anfrage über unser Kunden-Dashboard ein – schnell und unkompliziert.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Design erhalten</h3>
+                <p>Ihr persönlicher Designer setzt Ihr Projekt um und liefert den ersten Entwurf.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Feedback geben</h3>
+                <p>Teilen Sie uns Ihre Meinung mit. Unbegrenzte Revisionen bis Sie zufrieden sind.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Finales Design</h3>
+                <p>Erhalten Sie das finale Design inkl. aller Quelldateien zur freien Verwendung.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section - NEUE STRUKTUR -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">UNSERE LEISTUNGEN</h2>
+        <p class="section-description">Über 100 Design-Leistungen sind in Ihrer Flatrate enthalten</p>
+        
+        <div class="services-content">
+            <div class="filter-sidebar">
+                <div class="filter-container">
+                    <button class="filter-button active" data-filter="all">Alle</button>
+                    <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
+                    <button class="filter-button" data-filter="print">Print Design</button>
+                    <button class="filter-button" data-filter="motion">Motion Design</button>
+                    <button class="filter-button" data-filter="ux">UX/UI Design</button>
+                    <button class="filter-button" data-filter="brand">Brand Design</button>
+                    <button class="filter-button" data-filter="kleidung">Kleidung & Textilien</button>
+                    <button class="filter-button" data-filter="video">Video Editing</button>
+                    <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
+                </div>
+            </div>
+            
+            <div class="services-main">
+                <div class="services-grid">
+                    <!-- Service cards will be generated via JavaScript -->
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <h2 class="section-title">SO FUNKTIONIERT'S</h2>
-            <p class="section-description">Einfacher geht's nicht: In nur 4 Schritten zu Ihrem perfekten Design</p>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">UNSERE PAKETE</h2>
+        <p class="section-description">Wählen Sie das passende Paket für Ihre Bedürfnisse</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-title">Business Design Abo</h3>
+                <div class="pricing-price">1.460 €</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Standard Geschwindigkeit</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>100+ Design Leistungen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Fester Art Director</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Videobearbeitung</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Persönlicher Support</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Renommierte Designer</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Unbegrenzte Revisionen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span>Mindestens 4 Monate</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-button">Jetzt buchen</a>
+            </div>
             
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Anfrage stellen</h3>
-                    <p>Reichen Sie Ihre Anfrage über unser Kunden-Dashboard ein – schnell und unkompliziert.</p>
+            <div class="pricing-card">
+                <h3 class="pricing-title">Flex Design Abo</h3>
+                <div class="pricing-price">1.890 €</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Standard Geschwindigkeit</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>100+ Design Leistungen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Fester Art Director</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Videobearbeitung</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Persönlicher Support</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Renommierte Designer</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Unbegrenzte Revisionen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Monatlich kündbar</span>
+                    </div>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Design erhalten</h3>
-                    <p>Ihr persönlicher Designer setzt Ihr Projekt um und liefert den ersten Entwurf.</p>
+                <a href="#contact" class="cta-button">Jetzt buchen</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3 class="pricing-title">Premium Design Abo</h3>
+                <div class="pricing-price">3.840 €</div>
+                <div class="pricing-features">
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Doppelte Geschwindigkeit</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>100+ Design Leistungen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Marketing Strategien</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Fester Art Director</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Videobearbeitung</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Premium Support</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Unbegrenzte Revisionen</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Strategische Beratung</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Wöchentliche Meetings</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <span class="check-icon">✓</span>
+                        <span>Keine Vertragslaufzeit</span>
+                    </div>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Feedback geben</h3>
-                    <p>Teilen Sie uns Ihre Meinung mit. Unbegrenzte Revisionen bis Sie zufrieden sind.</p>
+                <a href="#contact" class="cta-button">Jetzt buchen</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2 class="section-title">HÄUFIG GESTELLTE FRAGEN</h2>
+        <p class="section-description">Antworten auf die wichtigsten Fragen zu unserer Design Flatrate</p>
+        
+        <div class="faq-items">
+            <div class="faq-item">
+                <h3 class="faq-question">Was ist in der Design Flatrate enthalten?</h3>
+                <div class="faq-answer">
+                    <p>Unsere Design Flatrate beinhaltet über 100 unterschiedliche Designleistungen aus den Bereichen Print, Digital, Motion und Brand Design. Sie haben Zugriff auf einen festen Art Director, der Ihre Anfragen priorisiert bearbeitet. Dazu gehören unbegrenzte Revisionen, sodass Sie immer das perfekte Ergebnis erhalten.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Finales Design</h3>
-                    <p>Erhalten Sie das finale Design inkl. aller Quelldateien zur freien Verwendung.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Wie viele Anfragen kann ich stellen?</h3>
+                <div class="faq-answer">
+                    <p>Sie können so viele Anfragen stellen, wie Sie möchten. Wir bearbeiten Ihre Anfragen nacheinander in einer Warteschlange. Sobald ein Projekt abgeschlossen ist, nehmen wir uns das nächste vor. So gewährleisten wir eine effiziente und qualitativ hochwertige Bearbeitung.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Wie lange dauert die Bearbeitung einer Anfrage?</h3>
+                <div class="faq-answer">
+                    <p>Die Bearbeitungszeit variiert je nach Komplexität des Projekts. Einfache Designs wie Social Media Posts können innerhalb eines Tages fertiggestellt werden, während komplexere Projekte wie Broschüren oder Landingpages 2-3 Tage in Anspruch nehmen können. Mit dem Premium-Paket erhalten Sie eine doppelte Bearbeitungsgeschwindigkeit.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Kann ich mein Abo jederzeit kündigen?</h3>
+                <div class="faq-answer">
+                    <p>Das hängt von Ihrem gewählten Abo ab. Das Business-Abo hat eine Mindestlaufzeit von 4 Monaten. Das Flex- und Premium-Abo können Sie monatlich kündigen. Eine Kündigung muss bis zum 15. des Vormonats erfolgen.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Erhalte ich die Quelldateien meiner Designs?</h3>
+                <div class="faq-answer">
+                    <p>Ja, Sie erhalten alle Quelldateien (AI, PSD, INDD etc.) sowie die finalen Exportdateien in den gängigen Formaten (PDF, JPG, PNG etc.). Alle Designs werden mit voller kommerzieller Nutzungslizenz ausgeliefert.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Was passiert, wenn ich mit einem Design nicht zufrieden bin?</h3>
+                <div class="faq-answer">
+                    <p>Wir bieten unbegrenzte Revisionen, bis Sie vollständig mit dem Ergebnis zufrieden sind. Geben Sie einfach Feedback, und wir passen das Design entsprechend an. Ihr persönlicher Art Director sorgt dafür, dass Ihre Vorstellungen umgesetzt werden.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Kann ich die Design Flatrate für mehrere Marken oder Unternehmen nutzen?</h3>
+                <div class="faq-answer">
+                    <p>Ja, Sie können die Design Flatrate für beliebig viele Marken oder Unternehmen nutzen, solange Sie der rechtmäßige Eigentümer oder Bevollmächtigte dieser Marken sind. Für Agenturen, die die Flatrate für ihre Kunden nutzen möchten, bieten wir spezielle Agency-Pakete an.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Welche Software wird für die Designs verwendet?</h3>
+                <div class="faq-answer">
+                    <p>Wir arbeiten mit der gesamten Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro etc.) sowie mit Figma, Sketch und anderen branchenüblichen Design-Tools. So gewährleisten wir höchste Qualität und Flexibilität bei allen Projekten.</p>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">UNSERE LEISTUNGEN</h2>
-            <p class="section-description">Über 100 Design-Leistungen sind in Ihrer Flatrate enthalten</p>
-            
-            <div class="filter-container">
-                <button class="filter-button active" data-filter="all">Alle</button>
-                <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
-                <button class="filter-button" data-filter="print">Print Design</button>
-                <button class="filter-button" data-filter="motion">Motion Design</button>
-                <button class="filter-button" data-filter="ux">UX/UI Design</button>
-                <button class="filter-button" data-filter="brand">Brand Design</button>
-                <button class="filter-button" data-filter="kleidung">Kleidung & Textilien</button>
-                <button class="filter-button" data-filter="video">Video Editing</button>
-                <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Service cards will be generated via JavaScript -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">UNSERE PAKETE</h2>
-            <p class="section-description">Wählen Sie das passende Paket für Ihre Bedürfnisse</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Business Design Abo</h3>
-                    <div class="pricing-price">1.460 €</div>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Standard Geschwindigkeit</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>100+ Design Leistungen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Fester Art Director</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Videobearbeitung</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Persönlicher Support</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Renommierte Designer</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Unbegrenzte Revisionen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span>Mindestens 4 Monate</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="cta-button">Jetzt buchen</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Flex Design Abo</h3>
-                    <div class="pricing-price">1.890 €</div>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Standard Geschwindigkeit</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>100+ Design Leistungen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Fester Art Director</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Videobearbeitung</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Persönlicher Support</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Renommierte Designer</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Unbegrenzte Revisionen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Monatlich kündbar</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="cta-button">Jetzt buchen</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Premium Design Abo</h3>
-                    <div class="pricing-price">3.840 €</div>
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Doppelte Geschwindigkeit</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>100+ Design Leistungen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Marketing Strategien</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Fester Art Director</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Videobearbeitung</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Premium Support</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Unbegrenzte Revisionen</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Strategische Beratung</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Wöchentliche Meetings</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="check-icon">✓</span>
-                            <span>Keine Vertragslaufzeit</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="cta-button">Jetzt buchen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">HÄUFIG GESTELLTE FRAGEN</h2>
-            <p class="section-description">Antworten auf die wichtigsten Fragen zu unserer Design Flatrate</p>
-            
-            <div class="faq-items">
-                <div class="faq-item">
-                    <h3 class="faq-question">Was ist in der Design Flatrate enthalten?</h3>
-                    <div class="faq-answer">
-                        <p>Unsere Design Flatrate beinhaltet über 100 unterschiedliche Designleistungen aus den Bereichen Print, Digital, Motion und Brand Design. Sie haben Zugriff auf einen festen Art Director, der Ihre Anfragen priorisiert bearbeitet. Dazu gehören unbegrenzte Revisionen, sodass Sie immer das perfekte Ergebnis erhalten.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Wie viele Anfragen kann ich stellen?</h3>
-                    <div class="faq-answer">
-                        <p>Sie können so viele Anfragen stellen, wie Sie möchten. Wir bearbeiten Ihre Anfragen nacheinander in einer Warteschlange. Sobald ein Projekt abgeschlossen ist, nehmen wir uns das nächste vor. So gewährleisten wir eine effiziente und qualitativ hochwertige Bearbeitung.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Wie lange dauert die Bearbeitung einer Anfrage?</h3>
-                    <div class="faq-answer">
-                        <p>Die Bearbeitungszeit variiert je nach Komplexität des Projekts. Einfache Designs wie Social Media Posts können innerhalb eines Tages fertiggestellt werden, während komplexere Projekte wie Broschüren oder Landingpages 2-3 Tage in Anspruch nehmen können. Mit dem Premium-Paket erhalten Sie eine doppelte Bearbeitungsgeschwindigkeit.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Kann ich mein Abo jederzeit kündigen?</h3>
-                    <div class="faq-answer">
-                        <p>Das hängt von Ihrem gewählten Abo ab. Das Business-Abo hat eine Mindestlaufzeit von 4 Monaten. Das Flex- und Premium-Abo können Sie monatlich kündigen. Eine Kündigung muss bis zum 15. des Vormonats erfolgen.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Erhalte ich die Quelldateien meiner Designs?</h3>
-                    <div class="faq-answer">
-                        <p>Ja, Sie erhalten alle Quelldateien (AI, PSD, INDD etc.) sowie die finalen Exportdateien in den gängigen Formaten (PDF, JPG, PNG etc.). Alle Designs werden mit voller kommerzieller Nutzungslizenz ausgeliefert.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Was passiert, wenn ich mit einem Design nicht zufrieden bin?</h3>
-                    <div class="faq-answer">
-                        <p>Wir bieten unbegrenzte Revisionen, bis Sie vollständig mit dem Ergebnis zufrieden sind. Geben Sie einfach Feedback, und wir passen das Design entsprechend an. Ihr persönlicher Art Director sorgt dafür, dass Ihre Vorstellungen umgesetzt werden.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Kann ich die Design Flatrate für mehrere Marken oder Unternehmen nutzen?</h3>
-                    <div class="faq-answer">
-                        <p>Ja, Sie können die Design Flatrate für beliebig viele Marken oder Unternehmen nutzen, solange Sie der rechtmäßige Eigentümer oder Bevollmächtigte dieser Marken sind. Für Agenturen, die die Flatrate für ihre Kunden nutzen möchten, bieten wir spezielle Agency-Pakete an.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <h3 class="faq-question">Welche Software wird für die Designs verwendet?</h3>
-                    <div class="faq-answer">
-                        <p>Wir arbeiten mit der gesamten Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro etc.) sowie mit Figma, Sketch und anderen branchenüblichen Design-Tools. So gewährleisten wir höchste Qualität und Flexibilität bei allen Projekten.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container">
+    </div>
+</section>
+
+<!-- CTA Section - NEUE ORANGE GESTALTUNG -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="cta-container">
             <h2 class="cta-title">BEREIT FÜR PROFESSIONELLES DESIGN?</h2>
             <p class="cta-description">Kontaktieren Sie uns noch heute und entdecken Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
             <div class="cta-buttons">
@@ -1136,47 +1214,48 @@
                 <a href="tel:+4916261518432" class="secondary-button">+49 162 6151832</a>
             </div>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>UNLEASH Marketing</h3>
-                    <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon">FB</a>
-                        <a href="#" class="social-icon">IG</a>
-                        <a href="#" class="social-icon">LI</a>
-                        <a href="#" class="social-icon">TW</a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Kontakt</h3>
-                    <ul class="footer-links">
-                        <li>Hafenstr. 25</li>
-                        <li>68159 Mannheim</li>
-                        <li>+49 162 6151832</li>
-                        <li>info@unleash-marketing.de</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Rechtliches</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">AGB</a></li>
-                    </ul>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>UNLEASH Marketing</h3>
+                <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">LI</a>
+                    <a href="#" class="social-icon">TW</a>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
+            <div class="footer-column">
+                <h3>Kontakt</h3>
+                <ul class="footer-links">
+                    <li>Hafenstr. 25</li>
+                    <li>68159 Mannheim</li>
+                    <li>+49 162 6151832</li>
+                    <li>info@unleash-marketing.de</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Rechtliches</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
-  </body>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
+</footer>
+</body>
 </html>
