@@ -148,39 +148,189 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         
-        /* Hero Section */
+        /* Hero Section - MODERNE VERSION */
         .hero {
             background-color: #121212;
             color: #fff;
             padding: 120px 0 80px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 107, 0, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: patternFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes patternFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            color: #ff6b00;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: badgeGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 0 10px rgba(255, 107, 0, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.4); }
+        }
+
+        .badge-icon {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
+            line-height: 1.1;
         }
-        
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ff6b00, #ff8533);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .hero-tagline {
             font-size: 1.5rem;
             margin-bottom: 2.5rem;
             color: #f0f0f0;
         }
-        
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b00;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .hero-trust {
+            margin-top: 3rem;
+        }
+
+        .trust-text {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .trust-logo {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #888;
+            letter-spacing: 0.5px;
         }
         
         /* About Section */
@@ -434,6 +584,56 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
+
+        /* Services Show More Button */
+        .services-show-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .show-more-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #ff6b00, #ff8533);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+        }
+
+        .show-more-btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .show-more-btn.hidden {
+            display: none;
+        }
+
+        .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .show-more-btn:hover .btn-icon {
+            transform: translateY(2px);
+        }
+
+        .show-more-btn.expanded .btn-icon {
+            transform: rotate(180deg);
+        }
         
         /* Pricing Section */
         .pricing {
@@ -553,7 +753,7 @@
             display: block;
         }
         
-        /* CTA Section - NEUE ORANGE GESTALTUNG */
+        /* CTA Section */
         .cta-section {
             padding: 100px 0;
             background-color: #121212;
@@ -673,6 +873,32 @@
             color: #777;
         }
         
+        /* Custom Styling for SVG Icons */
+        .benefit-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: #ff6b00;
+            fill: none;
+        }
+        
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+        
         /* Responsive Design */
         @media (max-width: 991px) {
             .nav-links {
@@ -685,6 +911,23 @@
             
             .hero-tagline {
                 font-size: 1.2rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .trust-logos {
+                gap: 1rem;
             }
             
             .about-content {
@@ -744,6 +987,20 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .trust-logos {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
             
             .benefits-grid {
                 grid-template-columns: 1fr;
@@ -762,36 +1019,9 @@
                 align-items: center;
             }
         }
-        
-        /* Custom Styling for SVG Icons */
-        .benefit-icon svg {
-            width: 48px;
-            height: 48px;
-            stroke: #ff6b00;
-            fill: none;
-        }
-        
-        /* Sticky Header */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(18, 18, 18, 0.95);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .sticky-header.visible {
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body>
-    <script src="script.js"></script>
 
     <header>
         <div class="container">
@@ -832,15 +1062,50 @@
         </div>
     </div>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - MODERNE VERSION -->
     <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>DESIGN FLATRATE<br>FÜR UNTERNEHMEN</h1>
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Über 300 zufriedene Kunden</span>
+                </div>
+                <h1>DESIGN FLATRATE<br><span class="highlight">FÜR UNTERNEHMEN</span></h1>
                 <p class="hero-tagline">Unbegrenzte Design-Anfragen, unbegrenzte Revisionen, ein fester Preis. Alle Quellendateien inklusive.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Design-Leistungen</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1-3</span>
+                        <span class="stat-label">Tage Lieferzeit</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Revisionen</span>
+                    </div>
+                </div>
                 <div class="hero-buttons">
-                    <a href="#pricing" class="cta-button">Pakete entdecken</a>
+                    <a href="#pricing" class="cta-button hero-cta">
+                        <span>Pakete entdecken</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                     <a href="#how-it-works" class="secondary-button">So funktioniert's</a>
+                </div>
+                <div class="hero-trust">
+                    <p class="trust-text">Vertraut von Unternehmen wie:</p>
+                    <div class="trust-logos">
+                        <div class="trust-logo">STARTUP</div>
+                        <div class="trust-logo">ENTERPRISE</div>
+                        <div class="trust-logo">AGENCY</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -913,356 +1178,964 @@
                     <div class="benefit-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</div>
-<h3 class="benefit-title">Schnelle Umsetzung</h3>
-<p>Die meisten Projekte werden innerhalb von 1-3 Werktagen umgesetzt.</p>
-</div>
-<div class="benefit-card">
-                <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Schnelle Umsetzung</h3>
+                    <p>Die meisten Projekte werden innerhalb von 1-3 Werktagen umgesetzt.</p>
                 </div>
-                <h3 class="benefit-title">Kosteneffizienz</h3>
-                <p>Sparen Sie bis zu 70% im Vergleich zur Beauftragung einzelner Freelancer.</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Kosteneffizienz</h3>
+                    <p>Sparen Sie bis zu 70% im Vergleich zur Beauftragung einzelner Freelancer.</p>
                 </div>
-                <h3 class="benefit-title">Volle Kontrolle</h3>
-                <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.4 15C19.1277 15.6272 19.2583 16.3528 19.73 16.84L19.79 16.9C20.1656 17.2757 20.3766 17.7831 20.3766 18.315C20.3766 18.8469 20.1656 19.3543 19.79 19.73C19.4143 20.1056 18.9069 20.3166 18.375 20.3166C17.8431 20.3166 17.3357 20.1056 16.96 19.73L16.9 19.67C16.4128 19.1983 15.6872 19.0677 15.06 19.34C14.4499 19.5969 14.041 20.1812 14.04 20.83V21C14.04 21.5304 13.8293 22.0391 13.4542 22.4142C13.0791 22.7893 12.5704 23 12.04 23C11.5096 23 11.0009 22.7893 10.6258 22.4142C10.2507 22.0391 10.04 21.5304 10.04 21V20.91C10.0297 20.2449 9.60468 19.6518 8.98 19.41C8.35283 19.1377 7.62722 19.2683 7.14 19.74L7.08 19.8C6.7043 20.1756 6.19692 20.3866 5.665 20.3866C5.13308 20.3866 4.6257 20.1756 4.25 19.8C3.87438 19.4243 3.66335 18.9169 3.66335 18.385C3.66335 17.8531 3.87438 17.3457 4.25 16.97L4.31 16.91C4.78171 16.4228 4.91234 15.6972 4.64 15.07C4.38305 14.4599 3.79876 14.051 3.15 14.05H3C2.46957 14.05 1.96086 13.8393 1.58579 13.4642C1.21071 13.0891 1 12.5804 1 12.05C1 11.5196 1.21071 11.0109 1.58579 10.6358C1.96086 10.2607 2.46957 10.05 3 10.05H3.09C3.75508 10.0397 4.34825 9.61468 4.59 8.99C4.86234 8.36283 4.73171 7.63722 4.26 7.15L4.2 7.09C3.82438 6.7143 3.61335 6.20692 3.61335 5.675C3.61335 5.14308 3.82438 4.6357 4.2 4.26C4.57583 3.88326 5.08447 3.67214 5.6175 3.67214C6.15053 3.67214 6.65917 3.88326 7.035 4.26L7.095 4.32C7.58222 4.79171 8.30783 4.92234 8.935 4.65H9C9.61014 4.39305 10.019 3.80876 10.02 3.16V3C10.02 2.46957 10.2307 1.96086 10.6058 1.58579C10.9809 1.21071 11.4896 1 12.02 1C12.5504 1 13.0591 1.21071 13.4342 1.58579C13.8093 1.96086 14.02 2.46957 14.02 3V3.09C14.021 3.73876 14.4299 4.32305 15.04 4.58C15.6672 4.85234 16.3928 4.72171 16.88 4.25L16.94 4.19C17.3157 3.81438 17.8231 3.60335 18.355 3.60335C18.8869 3.60335 19.3943 3.81438 19.77 4.19C20.1456 4.56583 20.3567 5.07447 20.3567 5.6075C20.3567 6.14053 20.1456 6.64917 19.77 7.025L19.71 7.085C19.2383 7.57222 19.1077 8.29783 19.38 8.925V9C19.6369 9.61014 20.2212 10.019 20.87 10.02H21C21.5304 10.02 22.0391 10.2307 22.4142 10.6058C22.7893 10.9809 23 11.4896 23 12.02C23 12.5504 22.7893 13.0591 22.4142 13.4342C22.0391 13.8093 21.5304 14.02 21 14.02H20.91C20.2613 14.021 19.677 14.4299 19.42 15.04V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">Volle Kontrolle</h3>
+                    <p>Jederzeit Einblick in den Fortschritt und direkte Einflussnahme auf Designs.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- How It Works Section -->
-<section class="how-it-works" id="how-it-works">
-    <div class="container">
-        <h2 class="section-title">SO FUNKTIONIERT'S</h2>
-        <p class="section-description">Einfacher geht's nicht: In nur 4 Schritten zu Ihrem perfekten Design</p>
-        
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3 class="step-title">Anfrage stellen</h3>
-                <p>Reichen Sie Ihre Anfrage über unser Kunden-Dashboard ein – schnell und unkompliziert.</p>
-            </div>
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">SO FUNKTIONIERT'S</h2>
+            <p class="section-description">Einfacher geht's nicht: In nur 4 Schritten zu Ihrem perfekten Design</p>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3 class="step-title">Design erhalten</h3>
-                <p>Ihr persönlicher Designer setzt Ihr Projekt um und liefert den ersten Entwurf.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3 class="step-title">Feedback geben</h3>
-                <p>Teilen Sie uns Ihre Meinung mit. Unbegrenzte Revisionen bis Sie zufrieden sind.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3 class="step-title">Finales Design</h3>
-                <p>Erhalten Sie das finale Design inkl. aller Quelldateien zur freien Verwendung.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Anfrage stellen</h3>
+                    <p>Reichen Sie Ihre Anfrage über unser Kunden-Dashboard ein – schnell und unkompliziert.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design erhalten</h3>
+                    <p>Ihr persönlicher Designer setzt Ihr Projekt um und liefert den ersten Entwurf.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Feedback geben</h3>
+                    <p>Teilen Sie uns Ihre Meinung mit. Unbegrenzte Revisionen bis Sie zufrieden sind.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Finales Design</h3>
+                    <p>Erhalten Sie das finale Design inkl. aller Quelldateien zur freien Verwendung.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Services Section - NEUE STRUKTUR -->
-<section class="services" id="services">
-    <div class="container">
-        <h2 class="section-title">UNSERE LEISTUNGEN</h2>
-        <p class="section-description">Über 100 Design-Leistungen sind in Ihrer Flatrate enthalten</p>
-        
-        <div class="services-content">
-            <div class="filter-sidebar">
-                <div class="filter-container">
-                    <button class="filter-button active" data-filter="all">Alle</button>
-                    <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
-                    <button class="filter-button" data-filter="print">Print Design</button>
-                    <button class="filter-button" data-filter="motion">Motion Design</button>
-                    <button class="filter-button" data-filter="ux">UX/UI Design</button>
-                    <button class="filter-button" data-filter="brand">Brand Design</button>
-                    <button class="filter-button" data-filter="kleidung">Kleidung & Textilien</button>
-                    <button class="filter-button" data-filter="video">Video Editing</button>
-                    <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
-                </div>
-            </div>
+    <!-- Services Section - MIT MEHR ANZEIGEN BUTTON -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">UNSERE LEISTUNGEN</h2>
+            <p class="section-description">Über 100 Design-Leistungen sind in Ihrer Flatrate enthalten</p>
             
-            <div class="services-main">
-                <div class="services-grid">
-                    <!-- Service cards will be generated via JavaScript -->
+            <div class="services-content">
+                <div class="filter-sidebar">
+                    <div class="filter-container">
+                        <button class="filter-button active" data-filter="all">Alle</button>
+                        <button class="filter-button" data-filter="marketing">Marketing & Werbung</button>
+                        <button class="filter-button" data-filter="print">Print Design</button>
+                        <button class="filter-button" data-filter="motion">Motion Design</button>
+                        <button class="filter-button" data-filter="ux">UX/UI Design</button>
+                        <button class="filter-button" data-filter="brand">Brand Design</button>
+                        <button class="filter-button" data-filter="kleidung">Kleidung & Textilien</button>
+                        <button class="filter-button" data-filter="video">Video Editing</button>
+                        <button class="filter-button" data-filter="verpackung">Verpackungsdesign</button>
+                    </div>
+                </div>
+                
+                <div class="services-main">
+                    <div class="services-grid">
+                        <!-- Service cards werden via JavaScript generiert -->
+                    </div>
+                    <div class="services-show-more">
+                        <button class="show-more-btn" id="showMoreServices">
+                            <span class="btn-text">Mehr Leistungen entdecken</span>
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Pricing Section -->
-<section class="pricing" id="pricing">
-    <div class="container">
-        <h2 class="section-title">UNSERE PAKETE</h2>
-        <p class="section-description">Wählen Sie das passende Paket für Ihre Bedürfnisse</p>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 class="pricing-title">Business Design Abo</h3>
-                <div class="pricing-price">1.460 €</div>
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Standard Geschwindigkeit</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>100+ Design Leistungen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Fester Art Director</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Videobearbeitung</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Persönlicher Support</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Renommierte Designer</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unbegrenzte Revisionen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span>Mindestens 4 Monate</span>
-                    </div>
-                </div>
-                <a href="#contact" class="cta-button">Jetzt buchen</a>
-            </div>
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">UNSERE PAKETE</h2>
+            <p class="section-description">Wählen Sie das passende Paket für Ihre Bedürfnisse</p>
             
-            <div class="pricing-card">
-                <h3 class="pricing-title">Flex Design Abo</h3>
-                <div class="pricing-price">1.890 €</div>
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Standard Geschwindigkeit</span>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Business Design Abo</h3>
+                    <div class="pricing-price">1.460 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Standard Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Persönlicher Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Renommierte Designer</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span>Mindestens 4 Monate</span>
+                        </div>
                     </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>100+ Design Leistungen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Fester Art Director</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Videobearbeitung</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Persönlicher Support</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Renommierte Designer</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unbegrenzte Revisionen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Monatlich kündbar</span>
-                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
                 </div>
-                <a href="#contact" class="cta-button">Jetzt buchen</a>
-            </div>
-            
-            <div class="pricing-card">
-                <h3 class="pricing-title">Premium Design Abo</h3>
-                <div class="pricing-price">3.840 €</div>
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Doppelte Geschwindigkeit</span>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Flex Design Abo</h3>
+                    <div class="pricing-price">1.890 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Standard Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Persönlicher Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Renommierte Designer</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Monatlich kündbar</span>
+                        </div>
                     </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>100+ Design Leistungen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Marketing Strategien</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Fester Art Director</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Videobearbeitung</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Premium Support</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Unbegrenzte Revisionen</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Strategische Beratung</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Wöchentliche Meetings</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <span class="check-icon">✓</span>
-                        <span>Keine Vertragslaufzeit</span>
-                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
                 </div>
-                <a href="#contact" class="cta-button">Jetzt buchen</a>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Premium Design Abo</h3>
+                    <div class="pricing-price">3.840 €</div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Doppelte Geschwindigkeit</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>100+ Design Leistungen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Marketing Strategien</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Fester Art Director</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Videobearbeitung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Premium Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Unbegrenzte Revisionen</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Strategische Beratung</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Wöchentliche Meetings</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="check-icon">✓</span>
+                            <span>Keine Vertragslaufzeit</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">Jetzt buchen</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FAQ Section -->
-<section class="faq" id="faq">
-    <div class="container">
-        <h2 class="section-title">HÄUFIG GESTELLTE FRAGEN</h2>
-        <p class="section-description">Antworten auf die wichtigsten Fragen zu unserer Design Flatrate</p>
-        
-        <div class="faq-items">
-            <div class="faq-item">
-                <h3 class="faq-question">Was ist in der Design Flatrate enthalten?</h3>
-                <div class="faq-answer">
-                    <p>Unsere Design Flatrate beinhaltet über 100 unterschiedliche Designleistungen aus den Bereichen Print, Digital, Motion und Brand Design. Sie haben Zugriff auf einen festen Art Director, der Ihre Anfragen priorisiert bearbeitet. Dazu gehören unbegrenzte Revisionen, sodass Sie immer das perfekte Ergebnis erhalten.</p>
-                </div>
-            </div>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">HÄUFIG GESTELLTE FRAGEN</h2>
+            <p class="section-description">Antworten auf die wichtigsten Fragen zu unserer Design Flatrate</p>
             
-            <div class="faq-item">
-                <h3 class="faq-question">Wie viele Anfragen kann ich stellen?</h3>
-                <div class="faq-answer">
-                    <p>Sie können so viele Anfragen stellen, wie Sie möchten. Wir bearbeiten Ihre Anfragen nacheinander in einer Warteschlange. Sobald ein Projekt abgeschlossen ist, nehmen wir uns das nächste vor. So gewährleisten wir eine effiziente und qualitativ hochwertige Bearbeitung.</p>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <h3 class="faq-question">Was ist in der Design Flatrate enthalten?</h3>
+                    <div class="faq-answer">
+                        <p>Unsere Design Flatrate beinhaltet über 100 unterschiedliche Designleistungen aus den Bereichen Print, Digital, Motion und Brand Design. Sie haben Zugriff auf einen festen Art Director, der Ihre Anfragen priorisiert bearbeitet. Dazu gehören unbegrenzte Revisionen, sodass Sie immer das perfekte Ergebnis erhalten.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Wie lange dauert die Bearbeitung einer Anfrage?</h3>
-                <div class="faq-answer">
-                    <p>Die Bearbeitungszeit variiert je nach Komplexität des Projekts. Einfache Designs wie Social Media Posts können innerhalb eines Tages fertiggestellt werden, während komplexere Projekte wie Broschüren oder Landingpages 2-3 Tage in Anspruch nehmen können. Mit dem Premium-Paket erhalten Sie eine doppelte Bearbeitungsgeschwindigkeit.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Wie viele Anfragen kann ich stellen?</h3>
+                    <div class="faq-answer">
+                        <p>Sie können so viele Anfragen stellen, wie Sie möchten. Wir bearbeiten Ihre Anfragen nacheinander in einer Warteschlange. Sobald ein Projekt abgeschlossen ist, nehmen wir uns das nächste vor. So gewährleisten wir eine effiziente und qualitativ hochwertige Bearbeitung.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Kann ich mein Abo jederzeit kündigen?</h3>
-                <div class="faq-answer">
-                    <p>Das hängt von Ihrem gewählten Abo ab. Das Business-Abo hat eine Mindestlaufzeit von 4 Monaten. Das Flex- und Premium-Abo können Sie monatlich kündigen. Eine Kündigung muss bis zum 15. des Vormonats erfolgen.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Wie lange dauert die Bearbeitung einer Anfrage?</h3>
+                    <div class="faq-answer">
+                        <p>Die Bearbeitungszeit variiert je nach Komplexität des Projekts. Einfache Designs wie Social Media Posts können innerhalb eines Tages fertiggestellt werden, während komplexere Projekte wie Broschüren oder Landingpages 2-3 Tage in Anspruch nehmen können. Mit dem Premium-Paket erhalten Sie eine doppelte Bearbeitungsgeschwindigkeit.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Erhalte ich die Quelldateien meiner Designs?</h3>
-                <div class="faq-answer">
-                    <p>Ja, Sie erhalten alle Quelldateien (AI, PSD, INDD etc.) sowie die finalen Exportdateien in den gängigen Formaten (PDF, JPG, PNG etc.). Alle Designs werden mit voller kommerzieller Nutzungslizenz ausgeliefert.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Kann ich mein Abo jederzeit kündigen?</h3>
+                    <div class="faq-answer">
+                        <p>Das hängt von Ihrem gewählten Abo ab. Das Business-Abo hat eine Mindestlaufzeit von 4 Monaten. Das Flex- und Premium-Abo können Sie monatlich kündigen. Eine Kündigung muss bis zum 15. des Vormonats erfolgen.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Was passiert, wenn ich mit einem Design nicht zufrieden bin?</h3>
-                <div class="faq-answer">
-                    <p>Wir bieten unbegrenzte Revisionen, bis Sie vollständig mit dem Ergebnis zufrieden sind. Geben Sie einfach Feedback, und wir passen das Design entsprechend an. Ihr persönlicher Art Director sorgt dafür, dass Ihre Vorstellungen umgesetzt werden.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Erhalte ich die Quelldateien meiner Designs?</h3>
+                    <div class="faq-answer">
+                        <p>Ja, Sie erhalten alle Quelldateien (AI, PSD, INDD etc.) sowie die finalen Exportdateien in den gängigen Formaten (PDF, JPG, PNG etc.). Alle Designs werden mit voller kommerzieller Nutzungslizenz ausgeliefert.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Kann ich die Design Flatrate für mehrere Marken oder Unternehmen nutzen?</h3>
-                <div class="faq-answer">
-                    <p>Ja, Sie können die Design Flatrate für beliebig viele Marken oder Unternehmen nutzen, solange Sie der rechtmäßige Eigentümer oder Bevollmächtigte dieser Marken sind. Für Agenturen, die die Flatrate für ihre Kunden nutzen möchten, bieten wir spezielle Agency-Pakete an.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Was passiert, wenn ich mit einem Design nicht zufrieden bin?</h3>
+                    <div class="faq-answer">
+                        <p>Wir bieten unbegrenzte Revisionen, bis Sie vollständig mit dem Ergebnis zufrieden sind. Geben Sie einfach Feedback, und wir passen das Design entsprechend an. Ihr persönlicher Art Director sorgt dafür, dass Ihre Vorstellungen umgesetzt werden.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <h3 class="faq-question">Welche Software wird für die Designs verwendet?</h3>
-                <div class="faq-answer">
-                    <p>Wir arbeiten mit der gesamten Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro etc.) sowie mit Figma, Sketch und anderen branchenüblichen Design-Tools. So gewährleisten wir höchste Qualität und Flexibilität bei allen Projekten.</p>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Kann ich die Design Flatrate für mehrere Marken oder Unternehmen nutzen?</h3>
+                    <div class="faq-answer">
+                        <p>Ja, Sie können die Design Flatrate für beliebig viele Marken oder Unternehmen nutzen, solange Sie der rechtmäßige Eigentümer oder Bevollmächtigte dieser Marken sind. Für Agenturen, die die Flatrate für ihre Kunden nutzen möchten, bieten wir spezielle Agency-Pakete an.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Welche Software wird für die Designs verwendet?</h3>
+                    <div class="faq-answer">
+                        <p>Wir arbeiten mit der gesamten Adobe Creative Suite (Photoshop, Illustrator, InDesign, After Effects, Premiere Pro etc.) sowie mit Figma, Sketch und anderen branchenüblichen Design-Tools. So gewährleisten wir höchste Qualität und Flexibilität bei allen Projekten.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CTA Section - NEUE ORANGE GESTALTUNG -->
-<section class="cta-section" id="contact">
-    <div class="container">
-        <div class="cta-container">
-            <h2 class="cta-title">BEREIT FÜR PROFESSIONELLES DESIGN?</h2>
-            <p class="cta-description">Kontaktieren Sie uns noch heute und entdecken Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
-            <div class="cta-buttons">
-                <a href="mailto:info@unleash-marketing.de" class="cta-button">Jetzt Kontakt aufnehmen</a>
-                <a href="tel:+4916261518432" class="secondary-button">+49 162 6151832</a>
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">BEREIT FÜR PROFESSIONELLES DESIGN?</h2>
+                <p class="cta-description">Kontaktieren Sie uns noch heute und entdecken Sie, wie unsere Design Flatrate Ihrem Unternehmen helfen kann.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:info@unleash-marketing.de" class="cta-button">Jetzt Kontakt aufnehmen</a>
+                    <a href="tel:+4916261518432" class="secondary-button">+49 162 6151832</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>UNLEASH Marketing</h3>
-                <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon">FB</a>
-                    <a href="#" class="social-icon">IG</a>
-                    <a href="#" class="social-icon">LI</a>
-                    <a href="#" class="social-icon">TW</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>UNLEASH Marketing</h3>
+                    <p>Ihr kreativer Problemlöser. Egal ob Digital oder Print – wir bieten Ihnen maßgeschneiderte Dienstleistungen und Produkte, die wirklich funktionieren.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">LI</a>
+                        <a href="#" class="social-icon">TW</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li>Hafenstr. 25</li>
+                        <li>68159 Mannheim</li>
+                        <li>+49 162 6151832</li>
+                        <li>info@unleash-marketing.de</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Rechtliches</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-column">
-                <h3>Kontakt</h3>
-                <ul class="footer-links">
-                    <li>Hafenstr. 25</li>
-                    <li>68159 Mannheim</li>
-                    <li>+49 162 6151832</li>
-                    <li>info@unleash-marketing.de</li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
             </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Services-Funktionalität initialisieren
+            populateServices();
+            initializeShowMore();
             
-            <div class="footer-column">
-                <h3>Rechtliches</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Datenschutz</a></li>
-                    <li><a href="#">AGB</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 UNLEASH Marketing. Alle Rechte vorbehalten.</p>
-        </div>
-    </div>
-</footer>
+            // Filter-Button Event-Listener
+            const filterButtons = document.querySelectorAll('.filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    filterServices(filterValue);
+                });
+            });
+            
+            // FAQ Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const faqAnswers = document.querySelectorAll('.faq-answer');
+            
+            faqQuestions.forEach((question, index) => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    faqAnswers[index].classList.toggle('active');
+                });
+            });
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Sticky header
+            window.addEventListener('scroll', function() {
+                const stickyHeader = document.querySelector('.sticky-header');
+                
+                if (window.scrollY > 200) {
+                    stickyHeader.classList.add('visible');
+                } else {
+                    stickyHeader.classList.remove('visible');
+                }
+            });
+        });
+
+        // Global variables für Services
+        let allServices = [];
+        let showingAllServices = false;
+        const INITIAL_SERVICES_COUNT = 30; // Zeige initial 30 Services
+
+        // Services mit Show More Funktionalität
+        function populateServices() {
+            // Komplette Service-Liste
+            allServices = [
+                // Marketing & Werbung
+                {
+                    category: "marketing",
+                    title: "AD Creative",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "3 Ad Creatives in jeweils 3 Formaten",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "motion",
+                    title: "AD Creative",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellung eines animierten AD Creatives",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "marketing",
+                    title: "AD Creative Vorlage",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen einer anpassbaren Ad Creative Vorlage zur Wiederverwendung",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Albumcover",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Albumcovers, druckfertiger Export",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Anhängerplane",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Anhängerplane layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                },
+                {
+                    category: "ux",
+                    title: "App Design",
+                    time: "Abhängig vom Aufwand",
+                    description: "Anlegen eines Wireframes, gestalten der App, Aufbereitung für Entwicklung",
+                    platforms: ["Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Aufkleber",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Award",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen einer Awards, für Herstellung aufbereiten",
+                    platforms: ["Xd", "Ai", "Ps", "Id"]
+                },
+                {
+                    category: "marketing",
+                    title: "Bandenwerbung",
+                    time: "Abhängig vom Aufwand",
+                    description: "Erstellen einer Bandenwerbung, Aufbereitung zur weiteren Verwendung",
+                    platforms: ["Id"]
+                },
+                {
+                    category: "marketing",
+                    title: "Banner Ad",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "1-2 Banner Ads in den gewünschten Formaten",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Bauzaunbanner",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                },
+                {
+                    category: "marketing",
+                    title: "Bildfreistellung",
+                    time: "1 Tag im Durchschnitt | Classic Paket",
+                    description: "Freistellen von 1-20 Bildern je nach Komplexität",
+                    platforms: ["Ps"]
+                },
+                {
+                    category: "brand",
+                    title: "Bildwelt",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Moodboards für die zukünftige Bildwelt",
+                    platforms: ["Id", "Ps"]
+                },
+                {
+                    category: "marketing",
+                    title: "Blog Beitrag",
+                    time: "1 Tag im Durchschnitt | Classic Paket",
+                    description: "Gestaltung eines Blogbeitrags mit 8 Sektionen",
+                    platforms: ["Xd", "Id"]
+                },
+                {
+                    category: "brand",
+                    title: "Brand Manual",
+                    time: "5-10 Tage im Durchschnitt | Classic Paket",
+                    description: "Ausführliche Zusammenfassung in ca. 15-20 Seiten der Marke (Logo, Farben, Schriften, Bildwelt, Mission, Vision, Anwendungsbeispiele)",
+                    platforms: ["Xd", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Briefpapier",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Doppelseitiges Briefpapier layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Broschüre",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Eine Doppelseite layouten, gestalten, druckfertiger Export",
+                    platforms: ["Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Buchcover",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Buchcovers, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Buchsatz",
+                    time: "Abhängig vom Aufwand",
+                    description: "Anlegen eines gesamten Buches, druckfertiger Export",
+                    platforms: ["Id"]
+                },
+                {
+                    category: "ux",
+                    title: "Dashboard",
+                    time: "Abhängig vom Aufwand",
+                    description: "Anlegen eines Wireframes, gestalten des Dashboards, Aufbereitung für Entwicklung",
+                    platforms: ["Xd"]
+                },
+                {
+                    category: "kleidung",
+                    title: "Decke",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen einer Decke, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Ps", "Id"]
+                },
+                {
+                    category: "marketing",
+                    title: "Display Anzeige",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "1-2 Displayanzeigen in den Google Ads-Formaten",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "marketing",
+                    title: "E-Mail Newsletter",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Gestalten eines Newsletters (ohne html)",
+                    platforms: ["Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Einladungskarte",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "4-Seitige Karte layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Eintrittskarte",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "2-Seitige Eintrittskarte layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps", "Id", "Xd"]
+                },
+                {
+                    category: "motion",
+                    title: "Erklärvideo",
+                    time: "Abhängig vom Aufwand",
+                    description: "Erstellen eines Erklärvideos zur Erläuterung komplexer Themenbereiche",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "print",
+                    title: "Fahrzeugbeklebung",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Ein Fahrzeug gestalten, Aufbereitung für weitere Verwendung",
+                    platforms: ["Ai", "Id", "Ps"]
+                },
+                {
+                    category: "verpackung",
+                    title: "Faltschachtel",
+                    time: "2-4 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                },
+                {
+                    category: "brand",
+                    title: "Farbwelt",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Ausarbeitung der Unternehmensfarben zur Markenbildung",
+                    platforms: ["Ai", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Firmenschilder",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Anlegen eines Firmenschildes, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Flagge",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "verpackung",
+                    title: "Flaschendesign",
+                    time: "5-7 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Flyer (2-Seitig)",
+                    time: "2-4 Tage im Durchschnitt | Classic Paket",
+                    description: "Vorder- & Rückseite layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Flyer (6-Seitig)",
+                    time: "3-5 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "marketing",
+                    title: "Fotobearbeitung",
+                    time: "1 Tag im Durchschnitt | Classic Paket",
+                    description: "Color Grading, Retusche, weitere Anpassungen",
+                    platforms: ["Ps"]
+                },
+                {
+                    category: "verpackung",
+                    title: "Geschenkverpackung",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Ps"]
+                },
+                {
+                    category: "motion",
+                    title: "Gif",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines animierten Gifs",
+                    platforms: ["Ae"]
+                },
+                {
+                    category: "print",
+                    title: "Gutschein",
+                    time: "1 Tag im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Gutscheins, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "kleidung",
+                    title: "Hemd / Bluse",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Hemdes / einer Bluse, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "kleidung",
+                    title: "Hoodie & Sweatshirt",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Vorder- & Rückseite erstellen, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "kleidung",
+                    title: "Hose",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Designs, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "brand",
+                    title: "Iconset",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Iconsets mit 12 Icons",
+                    platforms: ["Ai"]
+                },
+                {
+                    category: "marketing",
+                    title: "Illustration",
+                    time: "Abhängig vom Aufwand",
+                    description: "Illustration von einem Comic, Maskottchen, usw.",
+                    platforms: ["Ai"]
+                },
+                {
+                    category: "marketing",
+                    title: "Infografik",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Eine Infografik für einen Themenschwerpunkt ausarbeiten",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "video",
+                    title: "Instagram Reel",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines viralen Instagram Reels aus bestehendem Videomaterial",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "motion",
+                    title: "Intro / Outro",
+                    time: "3-4 Tage im Durchschnitt | Classic Paket",
+                    description: "Gestaltung eines animierten Intros/Outros",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "kleidung",
+                    title: "Jacke",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen eines Designs, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "print",
+                    title: "Kalender",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Anlegen eines Kalenders, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "brand",
+                    title: "Key Visual",
+                    time: "1-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Erstellen von 2-3 Key Visuals zur Markenbildung",
+                    platforms: ["Ai"]
+                },
+                {
+                    category: "verpackung",
+                    title: "Klebeband",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Layouten, gestalten, druckfertiger Export",
+                    platforms: ["Ai", "Id", "Ps", "Xd"]
+                },
+                {
+                    category: "video",
+                    title: "Kurzfilm",
+                    time: "Abhängig vom Aufwand",
+                    description: "Cutting, Color Grading, Audio Design und Export von maximal 3 Minuten Videos",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "ux",
+                    title: "Landingpage",
+                    time: "4-6 Tage im Durchschnitt | Classic Paket",
+                    description: "Anlegen eines Wireframes mit 6 Sektionen, gestalten der Webseite, Aufbereitung für Entwicklung",
+                    platforms: ["Xd"]
+                },
+                {
+                    category: "print",
+                    title: "Leuchtwerbung",
+                    time: "1-2 Tage im Durchschnitt | Classic Paket",
+                    description: "Anlegen einer Leuchtwerbung, druckfertiger Export",
+                    platforms: ["Xd", "Ai", "Id", "Ps"]
+                },
+                {
+                    category: "brand",
+                    title: "Logo Design",
+                    time: "2-5 Tage im Durchschnitt | Classic Paket",
+                    description: "3 ausgearbeitete Logo Konzepte, Reinzeichnung eines Konzeptes",
+                    platforms: ["Ai"]
+                },
+                {
+                    category: "motion",
+                    title: "Logo-Animation",
+                    time: "Abhängig vom Aufwand",
+                    description: "Erstellung einer Logo-Animation",
+                    platforms: ["Ae", "Pr"]
+                },
+                {
+                    category: "motion",
+                    title: "Lotti Animation",
+                    time: "2-3 Tage im Durchschnitt | Classic Paket",
+                    description: "Einfache Animation von bspw. Infografiken oder SaaS Plattformen",
+                    platforms: ["Ae", "Pr"]
+                }
+            ];
+            
+            renderServices();
+        }
+
+        function renderServices() {
+            const servicesGrid = document.querySelector('.services-grid');
+            const showMoreBtn = document.getElementById('showMoreServices');
+            
+            // Bestimme welche Services angezeigt werden sollen
+            const currentFilter = document.querySelector('.filter-button.active').getAttribute('data-filter');
+            let filteredServices = filterServicesByCategory(allServices, currentFilter);
+            
+            // Bestimme die Anzahl der anzuzeigenden Services
+            const servicesToShow = showingAllServices ? 
+                filteredServices : 
+                filteredServices.slice(0, INITIAL_SERVICES_COUNT);
+            
+            // Grid leeren und Services hinzufügen
+            servicesGrid.innerHTML = '';
+            
+            servicesToShow.forEach(service => {
+                const card = createServiceCard(service);
+                servicesGrid.appendChild(card);
+            });
+            
+            // Show More Button Status aktualisieren
+            updateShowMoreButton(filteredServices.length);
+        }
+
+        function createServiceCard(service) {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.setAttribute('data-category', service.category);
+            
+            let platformsHTML = '';
+            service.platforms.forEach(platform => {
+                platformsHTML += `<div class="platform-icon">${platform}</div>`;
+            });
+            
+            card.innerHTML = `
+                <div class="service-header">
+                    <div class="service-category">${getCategoryName(service.category)}</div>
+                    <h3 class="service-title">${service.title}</h3>
+                    <div class="service-time">${service.time}</div>
+                </div>
+                <div class="service-description">
+                    <p>${service.description}</p>
+                </div>
+                <div class="service-platforms">
+                    ${platformsHTML}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function filterServicesByCategory(services, category) {
+            if (category === 'all') {
+                return services;
+            }
+            return services.filter(service => service.category === category);
+        }
+
+        function updateShowMoreButton(totalFilteredServices) {
+            const showMoreBtn = document.getElementById('showMoreServices');
+            const btnText = showMoreBtn.querySelector('.btn-text');
+            
+            if (totalFilteredServices <= INITIAL_SERVICES_COUNT) {
+                // Nicht genug Services für Button
+                showMoreBtn.classList.add('hidden');
+            } else {
+                showMoreBtn.classList.remove('hidden');
+                
+                if (showingAllServices) {
+                    btnText.textContent = 'Weniger anzeigen';
+                    showMoreBtn.classList.add('expanded');
+                } else {
+                    const remainingCount = totalFilteredServices - INITIAL_SERVICES_COUNT;
+                    btnText.textContent = `${remainingCount} weitere Leistungen entdecken`;
+                    showMoreBtn.classList.remove('expanded');
+                }
+            }
+        }
+
+        function initializeShowMore() {
+            const showMoreBtn = document.getElementById('showMoreServices');
+            
+            showMoreBtn.addEventListener('click', function() {
+                showingAllServices = !showingAllServices;
+                
+                // Loading Animation
+                this.classList.add('loading');
+                
+                setTimeout(() => {
+                    renderServices();
+                    this.classList.remove('loading');
+                    
+                    // Smooth scroll zu den neuen Services
+                    if (showingAllServices) {
+                        setTimeout(() => {
+                            const newServicesPosition = document.querySelector('.service-card:nth-child(31)');
+                            if (newServicesPosition) {
+                                newServicesPosition.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center' 
+                                });
+                            }
+                        }, 100);
+                    }
+                }, 300);
+            });
+        }
+
+        function filterServices(filterValue) {
+            // Reset Show More Status beim Filtern
+            showingAllServices = false;
+            renderServices();
+        }
+
+        function getCategoryName(categorySlug) {
+            const categories = {
+                'marketing': 'Marketing & Werbung',
+                'print': 'Print Design',
+                'motion': 'Motion Design',
+                'ux': 'UX/UI Design',
+                'brand': 'Brand Design',
+                'kleidung': 'Kleidung & Textilien',
+                'video': 'Video Editing',
+                'verpackung': 'Verpackungsdesign'
+            };
+            
+            return categories[categorySlug] || categorySlug;
+        }
+    </script>
+
+</body>
+</html>
