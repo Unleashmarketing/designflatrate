@@ -948,6 +948,240 @@
                 align-items: center;
             }
         }
+    /* Cookie Banner Styles */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    color: #fff;
+    padding: 20px;
+    z-index: 10000;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    border-top: 2px solid #ff6b00;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text h3 {
+    color: #ff6b00;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.cookie-text p {
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cookie-text a {
+    color: #ff6b00;
+    text-decoration: underline;
+}
+
+.cookie-text a:hover {
+    color: #e55d00;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.cookie-btn-accept {
+    background-color: #ff6b00;
+    color: #fff;
+}
+
+.cookie-btn-accept:hover {
+    background-color: #e55d00;
+    transform: translateY(-2px);
+}
+
+.cookie-btn-decline {
+    background-color: transparent;
+    color: #ccc;
+    border: 1px solid #555;
+}
+
+.cookie-btn-decline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #777;
+}
+
+.cookie-btn-settings {
+    background-color: transparent;
+    color: #ff6b00;
+    border: 1px solid #ff6b00;
+}
+
+.cookie-btn-settings:hover {
+    background-color: rgba(255, 107, 0, 0.1);
+}
+
+/* Cookie Settings Modal */
+.cookie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.cookie-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cookie-modal-content {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 2px solid #333;
+}
+
+.cookie-modal h3 {
+    color: #ff6b00;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-category {
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: #222;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b00;
+}
+
+.cookie-category h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-category p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.cookie-toggle {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: #555;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cookie-toggle.active {
+    background: #ff6b00;
+}
+
+.cookie-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.cookie-toggle.active::before {
+    transform: translateX(26px);
+}
+
+.cookie-toggle.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cookie-modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+/* Responsive Cookie Banner */
+@media (max-width: 767px) {
+    .cookie-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .cookie-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .cookie-btn {
+        width: 100%;
+    }
+    
+    .cookie-modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .cookie-modal-buttons {
+        flex-direction: column;
+    }
+}
     </style>
 </head>
 <body>
@@ -1451,6 +1685,64 @@
        </div>
    </footer>
 
+    <!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner-content">
+        <div class="cookie-text">
+            <h3>🍪 Wir verwenden Cookies</h3>
+            <p>Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Einige sind notwendig für den Betrieb der Seite, andere helfen uns, diese Website und Ihre Erfahrung zu verbessern. Sie können selbst entscheiden, welche Kategorien Sie zulassen möchten. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-accept" id="acceptAllCookies">Alle akzeptieren</button>
+            <button class="cookie-btn cookie-btn-settings" id="cookieSettings">Einstellungen</button>
+            <button class="cookie-btn cookie-btn-decline" id="declineCookies">Nur notwendige</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div class="cookie-modal" id="cookieModal">
+    <div class="cookie-modal-content">
+        <h3>Cookie-Einstellungen</h3>
+        
+        <div class="cookie-category">
+            <h4>
+                Notwendige Cookies
+                <div class="cookie-toggle active disabled"></div>
+            </h4>
+            <p>Diese Cookies sind für das Funktionieren der Website unerlässlich und können nicht deaktiviert werden. Sie werden normalerweise nur als Reaktion auf Aktionen gesetzt, die einer Anfrage nach Diensten entsprechen.</p>
+        </div>
+        
+        <div class="cookie-category">
+            <h4>
+                Analytische Cookies
+                <div class="cookie-toggle" id="analyticsCookies"></div>
+            </h4>
+            <p>Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden. Wir verwenden Google Analytics für diese Zwecke.</p>
+        </div>
+        
+        <div class="cookie-category">
+            <h4>
+                Marketing Cookies
+                <div class="cookie-toggle" id="marketingCookies"></div>
+            </h4>
+            <p>Diese Cookies werden verwendet, um Ihnen relevante Werbung und Marketing-Kommunikation zu zeigen. Sie helfen uns auch dabei, die Effektivität unserer Werbekampagnen zu messen.</p>
+        </div>
+        
+        <div class="cookie-category">
+            <h4>
+                Funktionale Cookies
+                <div class="cookie-toggle" id="functionalCookies"></div>
+            </h4>
+            <p>Diese Cookies ermöglichen erweiterte Funktionalitäten und Personalisierung. Sie können von uns oder von Drittanbietern gesetzt werden, deren Dienste wir auf unseren Seiten verwenden.</p>
+        </div>
+        
+        <div class="cookie-modal-buttons">
+            <button class="cookie-btn cookie-btn-decline" id="modalDecline">Nur notwendige</button>
+            <button class="cookie-btn cookie-btn-accept" id="modalAccept">Auswahl speichern</button>
+        </div>
+    </div>
+</div>
    <script src="script.js"></script>
 </body>
 </html>
